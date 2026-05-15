@@ -1,0 +1,15 @@
+# Cloudflare Pages — _headers
+# Quote HTML pages: short cache so updates propagate quickly.
+# Don't index in search engines (also enforced via meta tag in each quote).
+
+/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: public, max-age=300, s-maxage=600
+
+/*.html
+  Content-Type: text/html; charset=utf-8
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: public, max-age=300, s-maxage=600
+
+/_template/*
+  X-Robots-Tag: noindex, nofollow
