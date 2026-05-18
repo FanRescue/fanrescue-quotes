@@ -51,7 +51,7 @@ jobs:
         if: steps.changed.outputs.files != ''
         env:
           CHANGED_FILES: ${{ steps.changed.outputs.files }}
-          HOST: quotes
+          HOST: proposals
         run: |
           python3 <<'PY'
           import json, os, re, pathlib, sys
@@ -94,8 +94,13 @@ jobs:
                   "host": host,
                   "category": category,
               }
-              # Replace if filename already present, else prepend
-              existing_idx = next((i for i, e in enumerate(data) if e.get("filename") == filename_no_ext), None)
+              # Replace if filename already present, else prepend.
+              # Tolerate legacy entries that may be strings or other shapes.
+              existing_idx = next(
+                  (i for i, e in enumerate(data)
+                   if isinstance(e, dict) and e.get("filename") == filename_no_ext),
+                  None,
+              )
               if existing_idx is not None:
                   data[existing_idx] = entry
                   print(f"Updated entry: {filename_no_ext}")
@@ -118,5 +123,5 @@ jobs:
             exit 0
           fi
           git add proposals.json
-          git commit -m "Auto-add proposals from fanrescue-quotes"
+          git commit -m "Auto-add proposals from fan-rescue-proposals"
           git push
