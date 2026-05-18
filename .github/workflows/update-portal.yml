@@ -51,7 +51,7 @@ jobs:
         if: steps.changed.outputs.files != ''
         env:
           CHANGED_FILES: ${{ steps.changed.outputs.files }}
-          HOST: proposals
+          HOST: quotes
         run: |
           python3 <<'PY'
           import json, os, re, pathlib, sys
@@ -63,7 +63,21 @@ jobs:
               sys.exit(0)
 
           portal_json = pathlib.Path("portal/proposals.json")
-          data = json.loads(portal_json.read_text()) if portal_json.exists() else []
+          if portal_json.exists():
+              raw = json.loads(portal_json.read_text())
+          else:
+              raw = {"proposals": []}
+
+          # The portal file is a dict like { "proposals": [ ... ] }.
+          # Be tolerant: accept a top-level list too, but normalise to the dict form on write.
+          if isinstance(raw, dict):
+              data = raw.get("proposals", [])
+              if not isinstance(data, list):
+                  data = []
+          elif isinstance(raw, list):
+              data = raw
+          else:
+              data = []
 
           def humanise(slug):
               # Strip a trailing -FR-YYYY-NNN if present
@@ -108,7 +122,8 @@ jobs:
                   data.insert(0, entry)
                   print(f"Added entry: {filename_no_ext}")
 
-          portal_json.write_text(json.dumps(data, indent=2) + "\n")
+          out = {"proposals": data}
+          portal_json.write_text(json.dumps(out, indent=2) + "\n")
           print(f"Wrote {len(data)} entries to {portal_json}")
           PY
 
@@ -123,5 +138,5 @@ jobs:
             exit 0
           fi
           git add proposals.json
-          git commit -m "Auto-add proposals from fan-rescue-proposals"
+          git commit -m "Auto-add proposals from fanrescue-quotes"
           git push
