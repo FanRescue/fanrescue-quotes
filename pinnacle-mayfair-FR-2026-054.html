@@ -200,9 +200,9 @@ p { margin-bottom: 16px; color: var(--fr-slate); }
     <h1 class="fr-hero__title">Pinnacle Mayfair Ltd<br><span>Background Extract &amp; HVAC Modification</span></h1>
     <p class="fr-hero__subtitle">Indicative budget for a new forced background extract system, fresh-air make-up, and overhaul of the existing comfort-cooling units &mdash; for light bakery use across Units L17 &amp; L18, built from the Jacobs Bond Pascoe concept report.</p>
     <div class="fr-hero__meta">
-      <div class="fr-hero__meta-item"><strong>[Contact name]</strong>Pinnacle Mayfair Ltd</div>
+      <div class="fr-hero__meta-item"><strong>Jabby</strong>Pinnacle Mayfair Ltd</div>
       <div class="fr-hero__meta-item"><strong>Site</strong>Units L17 &amp; L18, Link Street, Birmingham, B5 4BS</div>
-      <div class="fr-hero__meta-item"><strong>Email</strong><a href="mailto:[contact email]" style="color:rgba(255,255,255,0.55);">[contact email]</a></div>
+      <div class="fr-hero__meta-item"><strong>Email</strong><a href="mailto:info@pinnaclemayfair.com" style="color:rgba(255,255,255,0.55);">info@pinnaclemayfair.com</a></div>
       <div class="fr-hero__meta-item"><strong>Prepared by</strong>Huzaifa Mulla, Fan Rescue Ltd</div>
       <div class="fr-hero__meta-item"><strong>Date</strong>17 June 2026</div>
       <div class="fr-hero__meta-item"><strong>Quote Ref</strong>FR-2026-054</div>
@@ -226,7 +226,7 @@ p { margin-bottom: 16px; color: var(--fr-slate); }
   <div class="fr-container">
     <div class="fr-section-label">Introduction</div>
     <div class="fr-divider"></div>
-    <h2 class="fr-h2">Hi [first name],</h2>
+    <h2 class="fr-h2">Hi Jabby,</h2>
     <p class="fr-lead">Thanks for sending through the Jacobs Bond Pascoe report (6573-REP-001 Rev B) for Units L17 and L18 at Link Street. Based on that concept design, here is our indicative budget to deliver the mechanical works &mdash; a new forced background extract system, fresh-air make-up, and an overhaul of your existing comfort-cooling units, ready for light bakery use.</p>
     <p>Because this is built from a feasibility report rather than a site survey, the figures here are a budget guide, not a fixed quotation. We have priced the core works in full and flagged the items that could move the number once we have surveyed &mdash; chiefly the repair-versus-replace decision on the two ceiling cassette AC units. Once you are happy to proceed, our next step is a Fan Rescue site survey, after which we will issue a fixed quotation and works agreement.</p>
     <p>Any questions before you're ready to go, give us a call or hit Accept Quote at the top of the page.</p>
@@ -429,11 +429,28 @@ p { margin-bottom: 16px; color: var(--fr-slate); }
       </ul>
     </div>
 
-    <div style="margin-top:24px;background:#fff;border:1px solid var(--fr-border);border-left:4px solid var(--fr-gold);padding:20px 24px;border-radius:0 4px 4px 0;">
-      <strong style="display:block;margin-bottom:8px;color:var(--fr-navy-deep);font-size:14px;">Provisional Sums (not in the headline above &mdash; applied only if confirmed at survey)</strong>
-      <p style="margin:0 0 6px;font-size:14px;color:var(--fr-warm-grey);">Full replacement of both ceiling cassette AC units (19kW total) if beyond economic repair &mdash; &pound;11,500 + VAT.</p>
-      <p style="margin:0 0 6px;font-size:14px;color:var(--fr-warm-grey);">Certified fire-stopping system if landlord-rated penetrations require it &mdash; &pound;1,500 + VAT.</p>
-      <p style="margin:0;font-size:14px;color:var(--fr-warm-grey);">Structural support steelwork if slab fixings prove insufficient &mdash; &pound;1,200 + VAT.</p>
+    <!-- PROVISIONAL SUMS (own box, clearly marked) -->
+    <div class="fr-terms" style="margin-top:40px;border:2px solid var(--fr-gold);">
+      <h3 style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">Provisional Sums <span style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:rgba(200,151,62,0.15);color:var(--fr-gold);padding:5px 11px;border-radius:var(--fr-radius-sm);">Not in headline &middot; survey-dependent</span></h3>
+      <p style="font-size:13px;color:var(--fr-warm-grey);margin:-8px 0 20px;line-height:1.6;">These items are <strong>excluded from the &pound;34,060 core-works figure</strong> above. Each is held as a priced allowance and applied only if confirmed necessary at the Fan Rescue site survey.</p>
+      <div class="fr-terms-grid">
+        <div class="fr-terms-item">
+          <div class="fr-terms-item__label">AC Full Replacement</div>
+          <div class="fr-terms-item__value">Replacement of both ceiling cassette AC units (19kW total) if beyond economic repair &mdash; <strong>&pound;11,500 + VAT</strong></div>
+        </div>
+        <div class="fr-terms-item">
+          <div class="fr-terms-item__label">Certified Fire-Stopping</div>
+          <div class="fr-terms-item__value">Certified fire-stopping system if landlord-rated penetrations require it &mdash; <strong>&pound;1,500 + VAT</strong></div>
+        </div>
+        <div class="fr-terms-item">
+          <div class="fr-terms-item__label">Structural Steelwork</div>
+          <div class="fr-terms-item__value">Structural support steelwork if slab fixings prove insufficient &mdash; <strong>&pound;1,200 + VAT</strong></div>
+        </div>
+        <div class="fr-terms-item">
+          <div class="fr-terms-item__label" style="color:var(--fr-navy-deep);">Provisional Sums Total</div>
+          <div class="fr-terms-item__value"><strong>Up to &pound;14,200 + VAT</strong> &middot; indicative range including core works: <strong>&pound;34,060 &ndash; &pound;48,260 + VAT</strong></div>
+        </div>
+      </div>
     </div>
 
     <!-- PAYMENT SCHEDULE -->
@@ -607,7 +624,7 @@ function acceptQuote() {
   if(window.__frTrack) window.__frTrack('accept');
   var e = 'customerservice' + '\u0040' + 'fanrescue.co.uk';
   var s = 'Quote Acceptance \u2014 Pinnacle Mayfair Ltd \u2014 FR-2026-054';
-  var b = 'Hi Fan Rescue,\n\nI would like to accept quote FR-2026-054 for the installation at Units L17 &amp; L18, Link Street, Birmingham, B5 4BS.\n\nPlease send the deposit invoice and arrange the next steps so we can get started.\n\nThanks,\n[first name]\nPinnacle Mayfair Ltd';
+  var b = 'Hi Fan Rescue,\n\nI would like to accept quote FR-2026-054 for the installation at Units L17 &amp; L18, Link Street, Birmingham, B5 4BS.\n\nPlease send the deposit invoice and arrange the next steps so we can get started.\n\nThanks,\nJabby\nPinnacle Mayfair Ltd';
   window.location.href = 'mailto:' + e + '?subject=' + encodeURIComponent(s) + '&body=' + encodeURIComponent(b);
 }
 function downloadPDF() {
