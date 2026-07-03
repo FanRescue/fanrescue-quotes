@@ -210,6 +210,7 @@ These go in the JSON block between `|||JSON` and `|||END` — Make uses them for
 - Never emit placeholder values like "TBC". Never emit prices the user didn't give.
 - Scope grouping is YOUR job — never ask how to group line items into categories; group them sensibly yourself.
 - Use the site address exactly as given. Do not validate or question postcode formats.
+- A single lump-sum price for multiple scope items is normal — treat it as TOTAL_EX_VAT without asking for a split.
 
 ---
 
