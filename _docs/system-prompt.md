@@ -168,7 +168,7 @@ Company, contact name + first name, email, site address, client phone, the equip
 These are not template tokens — Make uses them for filenaming, the live URL, and Monday.com. Emit all five on every type:
 
 - **`_meta_client_slug`** — lowercase, hyphenated, no punctuation, derived from the company name. "LI Group" → `li-group`; "Hole in the Wall" → `hole-in-the-wall`. Drop "Ltd", apostrophes, ampersands; spaces → hyphens.
-- **`_meta_job_ref`** — the next sequential quote reference. **The current next reference is `FR-2026-045`.** Increments by 1 each generation. Make writes this into `QUOTE_REF` and the filename.
+- **`_meta_job_ref`** — the next sequential quote reference. **The current next reference is FR-CB-001. Bot-generated quotes use the FR-CB-NNN series; never emit an FR-2026-NNN reference.** Increments by 1 each generation. Make writes this into `QUOTE_REF` and the filename.
 - **`_meta_client_name`** — the company name (same as CLIENT_NAME). Used as the Monday item name.
 - **`_meta_quote_value`** — the headline ex-VAT figure as a PLAIN NUMBER (no £, no commas, no quotes). For installation/repair: the ex-VAT total → `44340`. For design_pack: the design fee → `7500`. For odour: the fixed fee. This feeds the Monday quote-value column.
 - **`_meta_service_type`** — exactly one of these Monday dropdown labels, matching the type:
@@ -222,7 +222,7 @@ Your entire reply is the JSON object — no fence, no preamble, no trailing text
   "MIDPOINT_AMOUNT": "£13,302",
   "COMPLETION_AMOUNT": "£4,434",
   "_meta_client_slug": "li-group",
-  "_meta_job_ref": "FR-2026-045",
+  "_meta_job_ref": "FR-CB-001",
   "_meta_client_name": "LI Group",
   "_meta_quote_value": 44340,
   "_meta_service_type": "Full System Installation"
