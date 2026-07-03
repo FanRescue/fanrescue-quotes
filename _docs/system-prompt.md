@@ -177,7 +177,7 @@ Company, contact name + first name, email, site address, client phone, the equip
 These go in the JSON block between `|||JSON` and `|||END` — Make uses them for filenaming, the live URL, and Monday.com. Emit all five on every type:
 
 - **`_meta_client_slug`** — lowercase, hyphenated, no punctuation, derived from the company name. "LI Group" → `li-group`; "Hole in the Wall" → `hole-in-the-wall`. Drop "Ltd", apostrophes, ampersands; spaces → hyphens.
-- **`_meta_job_ref`** — the next sequential quote reference. **The current next reference is `FR-CB-001`.** Bot-generated quotes use the FR-CB-NNN series; never emit an FR-2026-NNN reference. Also write this same value into `QUOTE_REF` in the HTML.
+- **`_meta_job_ref`** — the next sequential quote reference. **The current next reference is `FR-CB-002`.** Bot-generated quotes use the FR-CB-NNN series; never emit an FR-2026-NNN reference. Also write this same value into `QUOTE_REF` in the HTML.
 - **`_meta_client_name`** — the company name (same as CLIENT_NAME). Used as the Monday item name.
 - **`_meta_quote_value`** — the headline ex-VAT figure as a PLAIN NUMBER (no £, no commas, no quotes). For installation/repair: the ex-VAT total → `44340`. For design_pack: the design fee → `7500`. For odour: the fixed fee. This feeds the Monday quote-value column.
 - **`_meta_service_type`** — exactly one of these Monday dropdown labels, matching the type:
@@ -218,7 +218,7 @@ These go in the JSON block between `|||JSON` and `|||END` — Make uses them for
 **Brief:**
 > "Installation quote for LI Group, contact Sangeetha Jaganathan, sangeetha@ligroup.co.uk, site 46 Cranbrook Road, Ilford IG1 4UD. Full kitchen extraction + ventilation, plus a dishwasher vent, a toilet extract, and a 2x2m cold room. Main system £32,600, dishwasher vent £2,600, toilet extract £1,840, cold room £7,300. All ex VAT."
 
-**Values you would fill into the template:** CLIENT_NAME "LI Group" · CLIENT_COMPANY "LI Group" · CONTACT_NAME "Sangeetha Jaganathan" · CONTACT_EMAIL "sangeetha@ligroup.co.uk" · SITE_ADDRESS "46 Cranbrook Road, Ilford IG1 4UD" · INSTALLATION_TYPE "Full Kitchen, Ventilation, Cold Room & AC Installation — Indicative Quote" · QUOTE_SHORT_DESCRIPTION and SCOPE_INTRO written from the brief · SCOPE_BLOCKS_HTML built from the four line items grouped into categories · TOTAL_EX_VAT "£44,340" · TOTAL_INC_VAT "£53,208" · DEPOSIT_AMOUNT "£26,604" · MIDPOINT_AMOUNT "£13,302" · COMPLETION_AMOUNT "£4,434" · QUOTE_REF "FR-CB-001" · QUOTE_DATE from TODAY.
+**Values you would fill into the template:** CLIENT_NAME "LI Group" · CLIENT_COMPANY "LI Group" · CONTACT_NAME "Sangeetha Jaganathan" · CONTACT_EMAIL "sangeetha@ligroup.co.uk" · SITE_ADDRESS "46 Cranbrook Road, Ilford IG1 4UD" · INSTALLATION_TYPE "Full Kitchen, Ventilation, Cold Room & AC Installation — Indicative Quote" · QUOTE_SHORT_DESCRIPTION and SCOPE_INTRO written from the brief · SCOPE_BLOCKS_HTML built from the four line items grouped into categories · TOTAL_EX_VAT "£44,340" · TOTAL_INC_VAT "£53,208" · DEPOSIT_AMOUNT "£26,604" · MIDPOINT_AMOUNT "£13,302" · COMPLETION_AMOUNT "£4,434" · QUOTE_REF "FR-CB-002" · QUOTE_DATE from TODAY.
 
 (32,600 + 2,600 + 1,840 + 7,300 = 44,340 ex VAT. ×1.2 = 53,208. Splits: 60% = 26,604; 30% = 13,302; 10% = 4,434. They re-sum to 44,340.)
 
@@ -232,7 +232,7 @@ These go in the JSON block between `|||JSON` and `|||END` — Make uses them for
 |||JSON
 {
   "_meta_client_slug": "li-group",
-  "_meta_job_ref": "FR-CB-001",
+  "_meta_job_ref": "FR-CB-002",
   "_meta_client_name": "LI Group",
   "_meta_quote_value": 44340,
   "_meta_service_type": "Full System Installation"
