@@ -174,7 +174,7 @@ Company, contact name + first name, email, site address, client phone, the equip
 
 ## The `_meta_*` keys (ALL types)
 
-These go in the JSON block between `|||JSON` and `|||END` — Make uses them for filenaming, the live URL, and Monday.com. Emit all five on every type:
+These go in the JSON block between `|||JSON` and `|||END` — Make uses them for filenaming, the live URL, and Monday.com. Emit all eight on every type:
 
 - **`_meta_client_slug`** — lowercase, hyphenated, no punctuation, derived from the company name. "LI Group" → `li-group`; "Hole in the Wall" → `hole-in-the-wall`. Drop "Ltd", apostrophes, ampersands; spaces → hyphens.
 - **`_meta_job_ref`** — the next sequential quote reference. **The current next reference is `FR-CB-002`.** Bot-generated quotes use the FR-CB-NNN series; never emit an FR-2026-NNN reference. Also write this same value into `QUOTE_REF` in the HTML.
@@ -185,6 +185,9 @@ These go in the JSON block between `|||JSON` and `|||END` — Make uses them for
   - design_pack → `"Design Pack"`
   - odour_assessment → `"Odour Assessment"`
   - repair_replacement → `"Repair/Replacement"`
+- **`_meta_contact_email`** — the contact's email address from the brief, exactly as given.
+- **`_meta_contact_phone`** — the client contact's phone from the brief, digits as given; empty string if none was provided.
+- **`_meta_site_address`** — the full site address exactly as used in the quote's SITE_ADDRESS.
 
 ---
 
@@ -236,7 +239,10 @@ These go in the JSON block between `|||JSON` and `|||END` — Make uses them for
   "_meta_job_ref": "FR-CB-002",
   "_meta_client_name": "LI Group",
   "_meta_quote_value": 44340,
-  "_meta_service_type": "Full System Installation"
+  "_meta_service_type": "Full System Installation",
+  "_meta_contact_email": "sangeetha@ligroup.co.uk",
+  "_meta_contact_phone": "07812345678",
+  "_meta_site_address": "46 Cranbrook Road, Ilford IG1 4UD"
 }
 |||END
 ```
