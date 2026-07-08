@@ -1,1 +1,653 @@
-<!DOCTYPE
+<!DOCTYPEhtml>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Huddle Cafe — Installation Quote — Fan Rescue — FR-CB-004</title>
+
+<!-- Favicons + brand tokens from central asset host -->
+<link rel="icon" type="image/svg+xml" href="https://assets.fanrescue.co.uk/favicon/favicon.svg">
+<link rel="icon" type="image/x-icon" href="https://assets.fanrescue.co.uk/favicon/favicon.ico">
+<link rel="apple-touch-icon" href="https://assets.fanrescue.co.uk/favicon/apple-touch-icon.png">
+<link rel="stylesheet" href="https://assets.fanrescue.co.uk/brand/tokens.css">
+
+<style>
+/* ════ RESET ════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--fr-font-body); color: var(--fr-slate); line-height: 1.65; font-size: 16px; background: var(--fr-warm-white); margin: 0; }
+a { color: var(--fr-gold); text-decoration: none; }
+a:hover { color: var(--fr-gold-light); }
+
+/* ════ TOPBAR ════ */
+.fr-topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--fr-navy-deep); border-bottom: 2px solid var(--fr-gold); padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.fr-topbar__brand { display: flex; align-items: center; gap: 12px; }
+.fr-topbar__brand img { height: 32px; display: block; }
+.fr-topbar__actions { display: flex; gap: 10px; align-items: center; }
+.fr-topbar__btn { display: inline-flex; align-items: center; gap: 6px; font-family: var(--fr-font-body); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 9px 18px; border-radius: var(--fr-radius-sm); cursor: pointer; border: none; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+.fr-topbar__btn:hover { transform: translateY(-1px); }
+.fr-topbar__btn--pdf { background: rgba(255,255,255,0.1); color: var(--fr-warm-white); }
+.fr-topbar__btn--pdf:hover { background: rgba(255,255,255,0.18); color: var(--fr-warm-white); }
+.fr-topbar__btn--accept { background: var(--fr-gold); color: var(--fr-navy-deep); }
+.fr-topbar__btn--accept:hover { background: var(--fr-gold-light); color: var(--fr-navy-deep); }
+.fr-topbar__btn svg { width: 14px; height: 14px; }
+
+/* ════ PDF OVERLAY ════ */
+.fr-pdf-overlay { position: fixed; inset: 0; background: rgba(10, 22, 40, 0.85); display: flex; align-items: center; justify-content: center; z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.fr-pdf-overlay.active { opacity: 1; pointer-events: auto; }
+.fr-pdf-overlay__msg { background: var(--fr-navy-deep); border: 1px solid rgba(200, 151, 62, 0.3); padding: 32px 48px; border-radius: var(--fr-radius-md); text-align: center; }
+.fr-pdf-overlay__msg p { color: rgba(255,255,255,0.7); font-size: 14px; margin: 0; }
+.fr-pdf-overlay__msg strong { color: var(--fr-gold); display: block; margin-bottom: 8px; font-size: 16px; font-family: var(--fr-font-display); letter-spacing: 0.04em; }
+
+/* ════ PAGE ════ */
+.fr-page { max-width: 960px; margin: 60px auto 0; background: #fff; box-shadow: var(--fr-shadow-card); }
+
+@media print {
+  .fr-topbar, .fr-pdf-overlay { display: none !important; }
+  .fr-page { margin: 0; box-shadow: none; max-width: 100%; }
+  body { background: #fff; }
+  .frp2 .fr-hero { page-break-after: always; }
+  .frp2 .fr-section, .frp2 .fr-investment, .frp2 .fr-scope-block, .frp2 .fr-card--dark, .frp2 .fr-certs, .frp2 .fr-stats, .fr-cta, .fr-footer { break-inside: avoid; page-break-inside: avoid; }
+  .frp2 .fr-hero, .frp2 .fr-section--dark, .fr-cta, .fr-footer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .frp2 .fr-hero::before, .frp2 .fr-hero::after, .frp2 .fr-investment::before { display: none !important; }
+}
+
+/* ════ LAYOUT ════ */
+.frp2 { font-family: var(--fr-font-body); color: var(--fr-slate); line-height: 1.65; font-size: 16px; }
+.frp2 .fr-container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.frp2 .fr-section { padding: 72px 0; }
+.frp2 .fr-section--cream { background: var(--fr-warm-white); }
+.frp2 .fr-section--dark { background: var(--fr-navy-deep); color: var(--fr-warm-white); }
+
+/* ════ HERO ════ */
+.frp2 .fr-hero { background: linear-gradient(135deg, var(--fr-navy-deep) 0%, var(--fr-navy-mid) 100%); color: var(--fr-warm-white); padding: 96px 24px 84px; position: relative; overflow: hidden; }
+.frp2 .fr-hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(200, 151, 62, 0.12) 0%, transparent 65%); border-radius: 50%; }
+.frp2 .fr-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--fr-gold), transparent); }
+.frp2 .fr-hero__inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+.frp2 .fr-hero__badge { display: inline-block; background: rgba(200, 151, 62, 0.15); border: 1px solid rgba(200, 151, 62, 0.4); color: var(--fr-gold); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 7px 16px; border-radius: var(--fr-radius-sm); margin-bottom: 28px; font-family: var(--fr-font-body); }
+.frp2 .fr-hero__label { font-size: 12px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--fr-gold-pale); margin-bottom: 16px; font-family: var(--fr-font-body); }
+.frp2 .fr-hero__title { font-family: var(--fr-font-display); font-size: clamp(36px, 5.5vw, 60px); line-height: 1.05; color: var(--fr-warm-white); margin-bottom: 20px; letter-spacing: 0.04em; }
+.frp2 .fr-hero__title span { color: var(--fr-gold); }
+.frp2 .fr-hero__subtitle { font-size: 17px; color: rgba(245, 242, 236, 0.78); max-width: 620px; line-height: 1.65; margin-bottom: 36px; }
+.frp2 .fr-hero__meta { display: flex; gap: 32px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px; }
+.frp2 .fr-hero__meta-item { font-size: 13px; color: rgba(255,255,255,0.55); }
+.frp2 .fr-hero__meta-item strong { display: block; color: var(--fr-warm-white); font-size: 14px; margin-bottom: 2px; font-weight: 600; }
+
+/* ════ TYPOGRAPHY ════ */
+.frp2 .fr-section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fr-gold); margin-bottom: 12px; font-family: var(--fr-font-body); }
+.frp2 .fr-h2 { font-family: var(--fr-font-display); font-size: clamp(28px, 4vw, 42px); line-height: 1.1; color: var(--fr-navy-deep); margin-bottom: 20px; letter-spacing: 0.02em; }
+.frp2 .fr-section--dark .fr-h2 { color: var(--fr-warm-white); }
+.frp2 .fr-h3 { font-family: var(--fr-font-display); font-size: 20px; color: var(--fr-navy-deep); margin-bottom: 12px; line-height: 1.2; letter-spacing: 0.02em; }
+.frp2 .fr-section--dark .fr-h3 { color: var(--fr-warm-white); }
+.frp2 .fr-lead { font-size: 17px; color: var(--fr-slate); line-height: 1.75; margin-bottom: 24px; }
+.frp2 .fr-section--dark .fr-lead { color: rgba(245, 242, 236, 0.78); }
+.frp2 p { margin-bottom: 16px; color: var(--fr-slate); }
+.frp2 .fr-section--dark p { color: rgba(245, 242, 236, 0.72); }
+.frp2 .fr-divider { width: 48px; height: 3px; background: var(--fr-gold); margin-bottom: 24px; border-radius: 2px; }
+
+/* ════ CARDS ════ */
+.frp2 .fr-grid { display: grid; gap: 24px; }
+.frp2 .fr-grid--3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.frp2 .fr-card--dark { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--fr-radius-md); padding: 28px 24px; }
+.frp2 .fr-card__icon { width: 44px; height: 44px; background: rgba(200, 151, 62, 0.12); border-radius: var(--fr-radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 20px; }
+
+/* ════ CERT BADGES ════ */
+.frp2 .fr-certs { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin-top: 32px; }
+.frp2 .fr-cert { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--fr-radius-md); padding: 14px 20px; }
+.frp2 .fr-cert__icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; flex-shrink: 0; font-family: var(--fr-font-display); }
+.frp2 .fr-cert__icon--besa { background: rgba(200, 151, 62, 0.2); color: var(--fr-gold); }
+.frp2 .fr-cert__icon--fgas { background: rgba(76,175,80,0.2); color: #4CAF50; }
+.frp2 .fr-cert__label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+.frp2 .fr-cert__value { font-size: 14px; font-weight: 600; color: var(--fr-warm-white); }
+
+/* ════ STATS ════ */
+.frp2 .fr-stats { display: flex; flex-wrap: wrap; gap: 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 48px; }
+.frp2 .fr-stat { flex: 1; min-width: 140px; text-align: center; padding: 32px 16px; border-right: 1px solid rgba(255,255,255,0.08); }
+.frp2 .fr-stat:last-child { border-right: none; }
+.frp2 .fr-stat__number { font-family: var(--fr-font-display); font-size: 36px; color: var(--fr-gold); line-height: 1; margin-bottom: 6px; letter-spacing: 0.02em; }
+.frp2 .fr-stat__label { font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* ════ SCOPE ════ */
+.frp2 .fr-scope-block { margin-bottom: 44px; }
+.frp2 .fr-scope-block:last-of-type { margin-bottom: 32px; }
+.frp2 .fr-scope-list { list-style: none; }
+.frp2 .fr-scope-list li { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--fr-border); }
+.frp2 .fr-scope-list li:last-child { border-bottom: none; }
+.frp2 .fr-scope-list li::before { content: '✓'; flex-shrink: 0; width: 22px; height: 22px; background: var(--fr-gold); color: var(--fr-warm-white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; margin-top: 2px; }
+.frp2 .scope-main { display: block; font-weight: 700; color: var(--fr-navy-deep); font-size: 15px; margin-bottom: 4px; }
+.frp2 .scope-detail { display: block; font-size: 14px; color: var(--fr-warm-grey); line-height: 1.65; }
+
+/* ════ INVESTMENT ════ */
+.frp2 .fr-investment { background: linear-gradient(135deg, var(--fr-navy-deep) 0%, var(--fr-navy-mid) 100%); border-radius: var(--fr-radius-md); padding: 56px 48px; color: var(--fr-warm-white); text-align: center; position: relative; overflow: hidden; }
+.frp2 .fr-investment::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--fr-gold), transparent); }
+.frp2 .fr-investment__label { font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fr-gold); margin-bottom: 16px; font-family: var(--fr-font-body); }
+.frp2 .fr-investment__amount { font-family: var(--fr-font-display); font-size: clamp(56px, 9vw, 84px); color: var(--fr-warm-white); line-height: 1; margin-bottom: 12px; letter-spacing: 0.02em; }
+.frp2 .fr-investment__vat { font-size: 14px; color: rgba(245, 242, 236, 0.55); margin-bottom: 32px; }
+.frp2 .fr-investment__includes { list-style: none; max-width: 520px; margin: 32px auto 0; text-align: left; }
+.frp2 .fr-investment__includes li { padding: 10px 0; padding-left: 28px; position: relative; font-size: 14px; color: rgba(245, 242, 236, 0.82); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.frp2 .fr-investment__includes li::before { content: '✓'; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; background: rgba(200, 151, 62, 0.2); color: var(--fr-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; }
+
+/* ════ PAYMENT TERMS ════ */
+.frp2 .fr-terms { margin-top: 40px; background: #fff; border: 1px solid var(--fr-border); border-radius: var(--fr-radius-md); padding: 32px; }
+.frp2 .fr-terms h3 { font-family: var(--fr-font-display); font-size: 18px; color: var(--fr-navy-deep); margin-bottom: 20px; letter-spacing: 0.02em; }
+.frp2 .fr-terms-grid { display: grid; gap: 16px; }
+.frp2 .fr-terms-item { display: flex; align-items: flex-start; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--fr-border); }
+.frp2 .fr-terms-item:last-child { border-bottom: none; }
+.frp2 .fr-terms-item__label { flex: 0 0 200px; font-size: 12px; font-weight: 700; color: var(--fr-gold); text-transform: uppercase; letter-spacing: 0.1em; }
+.frp2 .fr-terms-item__value { flex: 1; font-size: 14px; color: var(--fr-slate); }
+
+/* ════ STEPS ════ */
+.frp2 .fr-step { display: flex; gap: 24px; margin-bottom: 28px; align-items: flex-start; }
+.frp2 .fr-step__num { flex: 0 0 56px; height: 56px; background: rgba(200, 151, 62, 0.15); border: 1px solid rgba(200, 151, 62, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--fr-font-display); font-size: 22px; color: var(--fr-gold); font-weight: 700; }
+.frp2 .fr-step__content { flex: 1; padding-top: 6px; }
+.frp2 .fr-step__content h3 { font-family: var(--fr-font-display); font-size: 18px; color: var(--fr-warm-white); margin-bottom: 6px; letter-spacing: 0.02em; }
+.frp2 .fr-step__content p { font-size: 14px; color: rgba(245, 242, 236, 0.68); margin: 0; }
+
+/* ════ CTA ════ */
+.fr-cta { background: linear-gradient(135deg, var(--fr-navy-deep) 0%, var(--fr-navy-mid) 100%); color: var(--fr-warm-white); padding: 84px 24px; text-align: center; position: relative; overflow: hidden; }
+.fr-cta h2 { font-family: var(--fr-font-display); font-size: clamp(28px, 4vw, 38px); margin-bottom: 16px; color: var(--fr-warm-white); letter-spacing: 0.02em; }
+.fr-cta p { font-size: 16px; color: rgba(245, 242, 236, 0.72); margin-bottom: 32px; max-width: 580px; margin-left: auto; margin-right: auto; }
+.fr-cta .fr-btn { display: inline-block; padding: 16px 40px; background: var(--fr-gold); color: var(--fr-navy-deep); font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; border-radius: var(--fr-radius-sm); border: none; cursor: pointer; margin: 0 6px; transition: background 0.2s, transform 0.15s; font-family: var(--fr-font-body); text-decoration: none; }
+.fr-cta .fr-btn:hover { background: var(--fr-gold-light); transform: translateY(-1px); color: var(--fr-navy-deep); }
+.fr-cta .fr-btn--outline { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--fr-warm-white); }
+.fr-cta .fr-btn--outline:hover { background: rgba(255,255,255,0.08); color: var(--fr-warm-white); }
+
+/* ════ FOOTER ════ */
+.fr-footer { background: #050d18; padding: 36px 24px; text-align: center; }
+.fr-footer p { color: rgba(245, 242, 236, 0.4); font-size: 12px; margin: 0; line-height: 1.7; }
+.fr-footer__brand { font-family: var(--fr-font-display); font-size: 20px; color: var(--fr-gold); letter-spacing: 0.08em; margin-bottom: 10px; }
+.fr-footer a { color: rgba(245, 242, 236, 0.5); }
+
+/* ════ INDICATIVE NOTICE BAR ════ */
+.fr-indicative-bar { background: var(--fr-gold); color: var(--fr-navy-deep); padding: 18px 24px; text-align: center; border-bottom: 2px solid var(--fr-gold-light); }
+.fr-indicative-bar__inner { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
+.fr-indicative-bar__icon { font-size: 22px; line-height: 1; }
+.fr-indicative-bar__text { font-family: var(--fr-font-display); font-size: 15px; font-weight: 700; letter-spacing: 0.04em; }
+
+@media (max-width: 600px) {
+  .frp2 .fr-section { padding: 52px 0; }
+  .frp2 .fr-hero { padding: 60px 20px 56px; }
+  .frp2 .fr-investment { padding: 40px 24px; }
+  .frp2 .fr-investment__amount { font-size: 52px; }
+  .frp2 .fr-certs { flex-direction: column; align-items: center; }
+  .fr-topbar__brand img { height: 26px; }
+  .fr-topbar__btn { padding: 8px 12px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════ STICKY TOP BAR ════ -->
+<div class="fr-topbar" id="topbar">
+  <div class="fr-topbar__brand">
+    <img src="https://assets.fanrescue.co.uk/logos/FR-Horizontal-Gold-Navy.svg" alt="Fan Rescue">
+  </div>
+  <div class="fr-topbar__actions">
+    <button class="fr-topbar__btn fr-topbar__btn--pdf" onclick="downloadPDF()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download PDF
+    </button>
+    <button class="fr-topbar__btn fr-topbar__btn--accept" onclick="acceptQuote()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Accept Quote
+    </button>
+  </div>
+</div>
+
+<!-- ════ PDF OVERLAY ════ -->
+<div class="fr-pdf-overlay" id="pdfOverlay">
+  <div class="fr-pdf-overlay__msg">
+    <strong>Preparing PDF...</strong>
+    <p>Your browser's print dialog will open. Choose "Save as PDF" to download.</p>
+  </div>
+</div>
+
+<div class="fr-page">
+<div class="frp2">
+
+<!-- ════════════ 1. HERO ════════════ -->
+<div class="fr-hero">
+  <div class="fr-hero__inner">
+    <div class="fr-hero__badge">Kitchen Extract Fan Replacement — Indicative Quote</div>
+    <div class="fr-hero__label">Prepared exclusively for</div>
+    <h1 class="fr-hero__title">Huddle Cafe<br><span>Huddle Cafe</span></h1>
+    <p class="fr-hero__subtitle">Removal and disposal of the existing extract fan, control and ductwork, and supply and installation of a new high-pressure extract fan system with new 450mm ductwork, silencers, anti-vibration mounts and jet cowl at 13 Wades Hill, London.</p>
+    <div class="fr-hero__meta">
+      <div class="fr-hero__meta-item"><strong>Susan Munds</strong>Huddle Cafe</div>
+      <div class="fr-hero__meta-item"><strong>Site</strong>Huddle Cafe, 13 Wades Hill, London N21 1BD</div>
+      <div class="fr-hero__meta-item"><strong>Email</strong><a href="mailto:suemunds@yahoo.com" style="color:rgba(245,242,236,0.6);">suemunds@yahoo.com</a></div>
+      <div class="fr-hero__meta-item"><strong>Prepared by</strong>Sam Matthews, Fan Rescue Ltd</div>
+      <div class="fr-hero__meta-item"><strong>Date</strong>8 July 2026</div>
+      <div class="fr-hero__meta-item"><strong>Quote Ref</strong>FR-CB-004</div>
+      <div class="fr-hero__meta-item"><strong>Valid for</strong>30 days</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ INDICATIVE NOTICE ════════════ -->
+<div class="fr-indicative-bar">
+  <div class="fr-indicative-bar__inner">
+    <span class="fr-indicative-bar__icon">⚠</span>
+    <span class="fr-indicative-bar__text">This quote is indicative and subject to a confirmatory site visit before works commence.</span>
+  </div>
+</div>
+
+<!-- ════════════ 2. INTRODUCTION ════════════ -->
+<div class="fr-section">
+  <div class="fr-container">
+    <div class="fr-section-label">Introduction</div>
+    <div class="fr-divider"></div>
+    <h2 class="fr-h2">Hi Susan,</h2>
+    <p class="fr-lead">Thank you for the opportunity to quote for the installation at Huddle Cafe. This covers the full removal and disposal of your existing extract fan, control and associated ductwork, and the supply and installation of a new high-pressure extract fan system complete with new 450mm ductwork, acoustic silencers, anti-vibration mountings and jet cowl discharge.</p>
+    <p>Everything below is supplied, installed, commissioned, and signed off by our own in-house engineers — no subcontracting. The price is firm, <strong>but is indicative until validated by a confirmatory site visit</strong>. Access, routing, termination points, and the building's fire strategy will be reviewed on site — anything material that changes the scope will be flagged and agreed in writing before works begin.</p>
+    <p>Any questions before you're ready to go, give us a call or hit Accept Quote at the top of the page.</p>
+  </div>
+</div>
+
+<!-- ════════════ 3. ABOUT FAN RESCUE ════════════ -->
+<div class="fr-section fr-section--dark">
+  <div class="fr-container">
+    <div class="fr-section-label">About Fan Rescue</div>
+    <div class="fr-divider"></div>
+    <h2 class="fr-h2">HVAC &amp; Extraction Installation Specialists</h2>
+    <p class="fr-lead">We've been designing and installing commercial ventilation and extraction systems across London and the South East since 2005. Every job is handled in-house from survey to sign-off.</p>
+    <div class="fr-grid fr-grid--3" style="margin-top:40px;">
+      <div class="fr-card--dark">
+        <div class="fr-card__icon">🔧</div>
+        <h3 style="color:var(--fr-warm-white);font-size:16px;margin-bottom:8px;font-family:var(--fr-font-display);letter-spacing:0.02em;">In-House Engineers</h3>
+        <p style="font-size:14px;">No subcontracting — ever. Our own qualified engineers handle every job from first fix to commissioning. Continuity, accountability, and a team that knows the site.</p>
+      </div>
+      <div class="fr-card--dark">
+        <div class="fr-card__icon">📐</div>
+        <h3 style="color:var(--fr-warm-white);font-size:16px;margin-bottom:8px;font-family:var(--fr-font-display);letter-spacing:0.02em;">Properly Engineered</h3>
+        <p style="font-size:14px;">Every installation is designed to meet Building Regs, BESA DW 144/172, and manufacturer specifications — not just bolted in. We do this properly so it works long-term and passes inspection.</p>
+      </div>
+      <div class="fr-card--dark">
+        <div class="fr-card__icon">✅</div>
+        <h3 style="color:var(--fr-warm-white);font-size:16px;margin-bottom:8px;font-family:var(--fr-font-display);letter-spacing:0.02em;">Full Handover</h3>
+        <p style="font-size:14px;">We commission every system ourselves, balance the airflows, set the controls, and walk you through it before we leave. Documentation issued on the day.</p>
+      </div>
+    </div>
+    <div class="fr-certs">
+      <div class="fr-cert">
+        <div class="fr-cert__icon fr-cert__icon--besa">B</div>
+        <div>
+          <div class="fr-cert__label">BESA Certified</div>
+          <div class="fr-cert__value">HV020676 · <a href="https://www.thebesa.com/HV020676/" style="color:var(--fr-gold);font-size:12px;">Verify</a></div>
+        </div>
+      </div>
+      <div class="fr-cert">
+        <div class="fr-cert__icon fr-cert__icon--fgas">F</div>
+        <div>
+          <div class="fr-cert__label">F-Gas Registered</div>
+          <div class="fr-cert__value">FGAS2001890</div>
+        </div>
+      </div>
+      <div class="fr-cert">
+        <div class="fr-cert__icon" style="background:rgba(99,179,237,0.2);color:#63B3ED;">£</div>
+        <div>
+          <div class="fr-cert__label">Public Liability</div>
+          <div class="fr-cert__value">£10 Million Cover</div>
+        </div>
+      </div>
+      <div class="fr-cert">
+        <div class="fr-cert__icon" style="background:rgba(154,117,234,0.2);color:#9A75EA;">PI</div>
+        <div>
+          <div class="fr-cert__label">Professional Indemnity</div>
+          <div class="fr-cert__value">£10 Million Cover</div>
+        </div>
+      </div>
+    </div>
+    <div class="fr-stats">
+      <div class="fr-stat"><div class="fr-stat__number">20+</div><div class="fr-stat__label">Years Trading</div></div>
+      <div class="fr-stat"><div class="fr-stat__number">London</div><div class="fr-stat__label">Based Team</div></div>
+      <div class="fr-stat"><div class="fr-stat__number">0</div><div class="fr-stat__label">Subcontractors</div></div>
+      <div class="fr-stat"><div class="fr-stat__number">Full</div><div class="fr-stat__label">Aftersales Support</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ 4. SCOPE OF WORKS ════════════ -->
+<div class="fr-section fr-section--cream">
+  <div class="fr-container">
+    <div class="fr-section-label">What's Included</div>
+    <div class="fr-divider"></div>
+    <h2 class="fr-h2">Proposed Scope of Works</h2>
+    <p class="fr-lead">Below is the full scope of what we'll be removing, supplying, installing, and commissioning at Huddle Cafe. The work is grouped into three areas: removal and disposal, new ductwork and fan installation, and commissioning and handover.</p>
+    
+    <div class="fr-scope-block">
+      <h3 class="fr-h3">Removal &amp; Disposal</h3>
+      <ul class="fr-scope-list">
+        <li>
+          <div>
+            <span class="scope-main">Removal and disposal of existing extract fan, control and ductwork</span>
+            <span class="scope-detail">Safe removal of the existing extract fan, its control system, and the associated ductwork, with responsible disposal of all removed materials. Building connection points made good ready for the new system.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="fr-scope-block">
+      <h3 class="fr-h3">New Ductwork, Fan &amp; Ancillaries</h3>
+      <ul class="fr-scope-list">
+        <li>
+          <div>
+            <span class="scope-main">Supply and install new 450mm dia. ductwork</span>
+            <span class="scope-detail">New circular ductwork sized to suit the installation, connected through to the building's existing termination point.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="scope-main">Supply and install ductwork reducers and fan flanges</span>
+            <span class="scope-detail">Reducers fitted to transition ductwork diameters as required, with fan flanges fitted at all fan connection points for a secure, airtight joint.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="scope-main">Supply and install 2 x flexible connections</span>
+            <span class="scope-detail">Flexible connectors fitted at the fan inlet and outlet to isolate vibration transfer into the rigid ductwork run.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="scope-main">Supply and install 4 x anti-vibration mounts</span>
+            <span class="scope-detail">Anti-vibration mountings fitted to the fan to reduce noise and vibration transmission into the building structure.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="scope-main">Supply and install 2 x silencers (before and after fan)</span>
+            <span class="scope-detail">Acoustic silencers fitted on both the inlet and discharge sides of the fan to attenuate noise breakout.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="scope-main">Supply and install new high-pressure fan and controller</span>
+            <span class="scope-detail">New high-pressure extract fan sized for the job, complete with matching fan controller, fully wired and set up ready for commissioning.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="scope-main">Supply and install jet cowl, bracket and fitting kit</span>
+            <span class="scope-detail">Jet cowl discharge terminal fitted with mounting bracket and full fitting kit to ensure a weathertight, secure roof or wall termination.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="fr-scope-block">
+      <h3 class="fr-h3">Commissioning &amp; Handover</h3>
+      <ul class="fr-scope-list">
+        <li>
+          <div>
+            <span class="scope-main">Full system commissioning and airflow balancing</span>
+            <span class="scope-detail">Once installation is complete, we run the system, verify performance against design, and balance airflows. All controls verified through their full operating range.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="scope-main">BESA-compliant installation documentation</span>
+            <span class="scope-detail">Installation carried out under our BESA certification (HV020676) to DW 144 / DW 172 standards. Commissioning certificates issued on handover.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="scope-main">Product data sheets and client walkthrough on handover</span>
+            <span class="scope-detail">Technical data sheets for all installed equipment provided on the day. We walk you through the system — how to operate it, what to check day to day, and the recommended service schedule.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--fr-border);border-left:4px solid var(--fr-border);padding:20px 24px;border-radius:0 var(--fr-radius-md) var(--fr-radius-md) 0;">
+      <strong style="display:block;margin-bottom:6px;color:var(--fr-navy-deep);font-size:14px;font-family:var(--fr-font-display);letter-spacing:0.02em;">Exclusions</strong>
+      <p style="margin:0;font-size:14px;color:var(--fr-warm-grey);">Builder's work, structural penetrations beyond those described, planning permission, mains electrical supply to the new controller (final connection by others unless otherwise agreed), and any works not explicitly listed above are excluded unless separately agreed in writing.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ 5. INVESTMENT + PAYMENT SCHEDULE ════════════ -->
+<div class="fr-section">
+  <div class="fr-container">
+    <div class="fr-section-label">Investment</div>
+    <div class="fr-divider"></div>
+    <h2 class="fr-h2">Your Investment</h2>
+    <p class="fr-lead">A single firm price for the full scope above — installed and commissioned by our in-house team.</p>
+
+    <div class="fr-investment" style="margin-top:36px;">
+      <div class="fr-investment__label">Total Installation Cost</div>
+      <div class="fr-investment__amount">£4,370</div>
+      <div class="fr-investment__vat">+ VAT at 20% · £5,244</div>
+      <ul class="fr-investment__includes">
+        <li>Removal and disposal of existing extract fan, control and ductwork</li>
+        <li>New 450mm ductwork, reducers, fan flanges, flexible connections and anti-vibration mounts</li>
+        <li>New high-pressure extract fan and controller, silencers, and jet cowl with fitting kit</li>
+        <li>Full commissioning, certification and handover</li>
+      </ul>
+    </div>
+
+    <!-- PAYMENT SCHEDULE — 60 / 30 / 10 -->
+    <div class="fr-terms" style="margin-top:40px;">
+      <h3>Payment Schedule — 60 / 30 / 10</h3>
+      <div class="fr-terms-grid">
+        <div class="fr-terms-item">
+          <div class="fr-terms-item__label">Stage 1 — Deposit (60%)</div>
+          <div class="fr-terms-item__value">£2,622 + VAT · Due on order confirmation</div>
+        </div>
+        <div class="fr-terms-item">
+          <div class="fr-terms-item__label">Stage 2 — Midpoint (30%)</div>
+          <div class="fr-terms-item__value">£1,311 + VAT · Due at midpoint of installation</div>
+        </div>
+        <div class="fr-terms-item">
+          <div class="fr-terms-item__label">Stage 3 — Completion (10%)</div>
+          <div class="fr-terms-item__value">£437 + VAT · Due on practical completion</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fr-terms" style="margin-top:20px;">
+      <h3>Payment Details</h3>
+      <div class="fr-terms-grid">
+        <div class="fr-terms-item">
+          <div class="fr-terms-item__label">Payment Method</div>
+          <div class="fr-terms-item__value">Bank transfer (BACS) only · Sort Code: 20 67 49 · Account: 40180696 · Fan Rescue Limited</div>
+        </div>
+        <div class="fr-terms-item">
+          <div class="fr-terms-item__label">Quote Validity</div>
+          <div class="fr-terms-item__value">30 days from date of issue</div>
+        </div>
+        <div class="fr-terms-item">
+          <div class="fr-terms-item__label">To Accept</div>
+          <div class="fr-terms-item__value">Use the Accept Quote button or email customerservice&#64;fanrescue.co.uk</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DELETE this block if the quote is firm rather than indicative. -->
+    <div style="background:rgba(232, 213, 163, 0.3);border:2px solid var(--fr-gold);padding:24px 28px;border-radius:var(--fr-radius-md);margin-top:24px;">
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <span style="font-size:24px;line-height:1.2;color:var(--fr-navy-deep);">⚠</span>
+        <div>
+          <strong style="display:block;color:var(--fr-navy-deep);font-size:15px;font-family:var(--fr-font-display);margin-bottom:6px;letter-spacing:0.02em;">Subject to confirmatory site visit</strong>
+          <p style="margin:0;font-size:14px;color:var(--fr-slate);line-height:1.7;">This quote is <strong>indicative</strong>. A pre-installation site visit will validate scope and pricing — any material change will be flagged and agreed in writing before works begin.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ 6. GETTING STARTED ════════════ -->
+<div class="fr-section fr-section--dark">
+  <div class="fr-container">
+    <div class="fr-section-label">Getting Started</div>
+    <div class="fr-divider"></div>
+    <h2 class="fr-h2">How It Works</h2>
+    <p class="fr-lead">From acceptance to a fully working, commissioned system.</p>
+    <div style="margin-top:32px;">
+      <div class="fr-step">
+        <div class="fr-step__num">1</div>
+        <div class="fr-step__content">
+          <h3>Accept This Quote</h3>
+          <p>Click Accept Quote at the top of the page or email customerservice&#64;fanrescue.co.uk. We raise the deposit invoice the same day and arrange the confirmatory site visit. We'll also send a formal service agreement for e-signature.</p>
+        </div>
+      </div>
+      <div class="fr-step">
+        <div class="fr-step__num">2</div>
+        <div class="fr-step__content">
+          <h3>Deposit — £2,622 + VAT (60%)</h3>
+          <p>Once the deposit clears, equipment is ordered and your installation date is locked in via Google Calendar event (sent for your acceptance). Lead time is typically 3–4 weeks from order confirmation.</p>
+        </div>
+      </div>
+      <div class="fr-step">
+        <div class="fr-step__num">3</div>
+        <div class="fr-step__content">
+          <h3>Installation on Site — Midpoint Payment £1,311 + VAT (30%)</h3>
+          <p>Our in-house team installs everything on site. Midpoint payment due once the major equipment is in place and first-fix complete.</p>
+        </div>
+      </div>
+      <div class="fr-step">
+        <div class="fr-step__num">4</div>
+        <div class="fr-step__content">
+          <h3>Commissioning, Handover &amp; Final Payment — £437 + VAT (10%)</h3>
+          <p>Full commissioning, balancing, certification, and walkthrough with your team. Documentation issued on the day. The system is not handed over or signed off until full and final payment has been received.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ 7. TERMS &amp; CONDITIONS ════════════ -->
+<div class="fr-section fr-section--cream">
+  <div class="fr-container">
+    <div class="fr-section-label">Terms &amp; Conditions</div>
+    <div class="fr-divider"></div>
+    <h2 class="fr-h2">The Important Bits</h2>
+    <div style="display:grid;gap:16px;margin-top:32px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+        <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;">Warranty</div>
+          <p style="font-size:14px;color:var(--fr-slate);margin:0;">All labour and parts supplied by us carries a <strong>one-year warranty</strong> from the date of practical completion.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;">Quote Validity</div>
+          <p style="font-size:14px;color:var(--fr-slate);margin:0;">This quote is valid for <strong>30 days</strong> from the date of issue. Material price changes after that may require a revised quote.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;">VAT</div>
+          <p style="font-size:14px;color:var(--fr-slate);margin:0;">All prices exclude <strong>VAT at 20%</strong>, which will be added to each invoice at the prevailing rate.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;">Payment Method</div>
+          <p style="font-size:14px;color:var(--fr-slate);margin:0;"><strong>Bank transfer only</strong> — we do not accept card payments. Sort code, account number, and references provided with each invoice.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;">Late Payment</div>
+          <p style="font-size:14px;color:var(--fr-slate);margin:0;">Unpaid balances passed to our debt recovery specialists. A charge of <strong>15% + VAT</strong> applied to the outstanding amount, plus statutory interest.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;">Standards</div>
+          <p style="font-size:14px;color:var(--fr-slate);margin:0;">All works in accordance with <strong>F-GAS</strong>, <strong>BESA DW 172/144</strong>, and the <strong>EMAQ+</strong> Specifications Guide.</p>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;">Service Agreement &amp; Scheduling</div>
+        <p style="font-size:14px;color:var(--fr-slate);margin:0 0 8px;">Works commence only once: (a) the quote has been accepted; (b) a formal service agreement has been e-signed; and (c) the 60% deposit has been received. The installation date is then locked in via a Google Calendar event sent for your acceptance.</p>
+        <p style="font-size:14px;color:var(--fr-slate);margin:0;">The system is not commissioned or handed over until full and final payment has been received.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ 8. CLEANING UPSELL ════════════ -->
+<div class="fr-section">
+  <div class="fr-container">
+    <div style="background: linear-gradient(135deg, var(--fr-navy-deep) 0%, var(--fr-navy-mid) 100%); border-radius: var(--fr-radius-md); padding: 48px 40px; display:flex; gap:40px; flex-wrap:wrap; align-items:center;">
+      <div style="flex:2;min-width:240px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;color:var(--fr-gold);text-transform:uppercase;margin-bottom:10px;">Ongoing Maintenance</div>
+        <h3 style="font-family:var(--fr-font-display);font-size:22px;color:var(--fr-warm-white);margin-bottom:14px;letter-spacing:0.02em;">Keep Your New System Compliant &amp; Running At Its Best</h3>
+        <p style="font-size:14px;color:rgba(245,242,236,0.72);margin:0 0 12px;line-height:1.7;">Commercial kitchen ductwork needs regular TR19-compliant cleaning to manage grease build-up and keep your insurance valid. Fire suppression needs annual service to remain certified. AHUs benefit from filter and coil servicing.</p>
+        <p style="font-size:14px;color:rgba(245,242,236,0.72);margin:0;line-height:1.7;">Fan Rescue runs both extraction cleaning and AHU/fire-suppression maintenance contracts across London. We already know your system inside out — let us maintain it.</p>
+      </div>
+      <div style="flex:1;min-width:200px;text-align:center;">
+        <div style="font-size:13px;color:rgba(245,242,236,0.6);margin-bottom:8px;">Ask us about</div>
+        <div style="font-family:var(--fr-font-display);font-size:22px;color:var(--fr-gold);margin-bottom:4px;letter-spacing:0.02em;">Service Contracts</div>
+        <div style="font-size:13px;color:rgba(245,242,236,0.5);margin-bottom:20px;">TR19 · Fire Suppression · AHU Servicing</div>
+        <a href="mailto:office&#64;fanrescue.co.uk" style="display:inline-block;background:var(--fr-gold);color:var(--fr-navy-deep);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:12px 24px;border-radius:var(--fr-radius-sm);text-decoration:none;">Get a Service Quote</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ 9. READY TO PROCEED ════════════ -->
+<div class="fr-cta" id="acceptSection">
+  <h2>Ready to Proceed?</h2>
+  <p>Click Accept to confirm your agreement to the scope, terms, and payment schedule in this quote. We'll be back to you the same day to arrange the site visit, issue the e-signature service agreement, and raise the deposit invoice.</p>
+  <button class="fr-btn" onclick="acceptQuote()">Accept This Quote</button>
+  <a href="tel:+442033082936" class="fr-btn fr-btn--outline">Call Us — 020 3308 2936</a>
+  <p style="font-size:12px;color:rgba(245,242,236,0.4);margin-top:24px;max-width:500px;margin-left:auto;margin-right:auto;">Quote Ref: FR-CB-004 · Valid 30 days from date of issue · BESA HV020676 · F-Gas FGAS2001890</p>
+</div>
+
+<!-- ════ FOOTER ════ -->
+<div class="fr-footer">
+  <div class="fr-footer__brand">FAN RESCUE</div>
+  <p>Fan Rescue Ltd · 260 West Hendon Broadway London NW9 6AG<br>
+  Tel: 020 3308 2936 · enquiries&#64;fanrescue.co.uk · <a href="https://fanrescue.co.uk">fanrescue.co.uk</a><br>
+  Co No: 5954579 · VAT No: 906 9111 32 · BESA HV020676 · F-Gas FGAS2001890<br>
+  Quote Ref: FR-CB-004 · Valid 30 days from date of issue. All prices exclude VAT.</p>
+</div>
+
+</div>
+</div>
+
+<script>
+function acceptQuote() {
+  var e = 'customerservice' + '\u0040' + 'fanrescue.co.uk';
+  var s = 'Quote Acceptance \u2014 Huddle Cafe \u2014 FR-CB-004';
+  var b = 'Hi Fan Rescue,\n\nI would like to accept quote FR-CB-004 for the installation at Huddle Cafe.\n\nPlease send the deposit invoice, the formal service agreement for e-signature, and the Google Calendar event for the site visit.\n\nThanks,\nSusan Munds\nHuddle Cafe';
+  window.location.href = 'mailto:' + e + '?subject=' + encodeURIComponent(s) + '&body=' + encodeURIComponent(b);
+  if (typeof __frTrack === 'function') { try { __frTrack('accept'); } catch(e){} }
+}
+function downloadPDF() {
+  var overlay = document.getElementById('pdfOverlay');
+  overlay.classList.add('active');
+  var topbar = document.getElementById('topbar');
+  topbar.style.display = 'none';
+  setTimeout(function() {
+    overlay.classList.remove('active');
+    window.print();
+    topbar.style.display = '';
+  }, 600);
+  if (typeof __frTrack === 'function') { try { __frTrack('pdf'); } catch(e){} }
+}
+document.getElementById('pdfOverlay').addEventListener('click', function(e) {
+  if (e.target === this) this.classList.remove('active');
+});
+</script>
+
+<!-- ════ TRACKING ════ -->
+<!-- Keep window.__frRef in sync with QUOTE_REF above. -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5d9632d8a3084226b854145a0da83ba8"}'></script>
+<script>
+window.__frRef = "FR-CB-004";
+(function(){
+  if(!window.__frRef || !/^FR-\d{4}/.test(window.__frRef)) return;
+  var u = "https://proposal-tracker.office-33b.workers.dev/track";
+  var p = JSON.stringify({ ref: window.__frRef });
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon(u, new Blob([p], {type:"text/plain"}));
+  } else {
+    fetch(u, {method:"POST", body:p, headers:{"Content-Type":"text/plain"}, keepalive:true, credentials:"omit"});
+  }
+  window.__frTrack = function(evt){
+    try {
+      var pp = JSON.stringify({ ref: window.__frRef, event: evt });
+      if (navigator.sendBeacon) { navigator.sendBeacon(u, new Blob([pp], {type:"text/plain"})); }
+      else { fetch(u, {method:"POST", body:pp, headers:{"Content-Type":"text/plain"}, keepalive:true, credentials:"omit"}); }
+    } catch(e){}
+  };
+})();
+</script>
+
+</body>
+</html>
