@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="fr-category" content="repair-replacement">
+<title>Bunga Bunga — Silencer &amp; Anti-Vibration Works — FR-2026-094 — Fan Rescue</title>
+<link rel="stylesheet" href="https://assets.fanrescue.co.uk/brand/tokens.css">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--fr-font-body); color: var(--fr-slate); line-height: 1.7; font-size: 16px; background: var(--fr-warm-white); margin: 0; }
+a { color: var(--fr-gold); text-decoration: none; }
+
+/* ── TOPBAR ── */
+.fr-topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--fr-navy-deep); border-bottom: 2px solid var(--fr-gold); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+.fr-topbar__brand { display: flex; align-items: center; gap: 12px; }
+.fr-topbar__logo { height: 32px; width: auto; display: block; }
+.fr-topbar__tagline { font-family: var(--fr-font-body); font-size: 10px; color: rgba(255,255,255,0.45); letter-spacing: var(--fr-tracking-tagline); text-transform: uppercase; font-weight: 500; }
+.fr-topbar__actions { display: flex; gap: 10px; align-items: center; }
+.fr-topbar__btn { display: inline-flex; align-items: center; gap: 6px; font-family: var(--fr-font-body); font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 8px 18px; border-radius: var(--fr-radius-sm); cursor: pointer; border: none; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+.fr-topbar__btn:hover { transform: translateY(-1px); }
+.fr-topbar__btn--pdf { background: rgba(255,255,255,0.1); color: #fff; }
+.fr-topbar__btn--pdf:hover { background: rgba(255,255,255,0.18); }
+.fr-topbar__btn--accept { background: var(--fr-gold); color: #fff; }
+.fr-topbar__btn--accept:hover { background: var(--fr-gold-light); }
+.fr-topbar__btn svg { width: 14px; height: 14px; }
+
+/* ── PDF OVERLAY ── */
+.fr-pdf-overlay { position: fixed; inset: 0; background: rgba(10,22,40,0.85); display: flex; align-items: center; justify-content: center; z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.fr-pdf-overlay.active { opacity: 1; pointer-events: auto; }
+.fr-pdf-overlay__msg { background: var(--fr-navy-deep); border: 1px solid rgba(200,151,62,0.3); padding: 32px 48px; border-radius: var(--fr-radius-md); text-align: center; }
+.fr-pdf-overlay__msg p { color: rgba(255,255,255,0.7); font-size: 14px; margin: 0; }
+.fr-pdf-overlay__msg strong { color: var(--fr-gold); display: block; margin-bottom: 8px; font-size: 16px; }
+
+/* ── PAGE ── */
+.fr-page { max-width: 960px; margin: 56px auto 0; background: #fff; box-shadow: var(--fr-shadow-card); }
+
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .fr-topbar, .fr-pdf-overlay { display: none !important; }
+  .fr-page { margin: 0; box-shadow: none; max-width: 100%; }
+  body { background: #fff; }
+  .fr-hero { page-break-after: always; }
+  .fr-section, .fr-investment, .fr-cta, .fr-footer, .fr-scope-block, .fr-step, .fr-cert, .fr-stat { break-inside: avoid; }
+  .fr-hero::before, .fr-hero::after, .fr-investment::before { display: none !important; }
+}
+
+/* ── SECTIONS ── */
+.fr-container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.fr-section { padding: 72px 0; }
+.fr-section--grey { background: var(--fr-warm-white); }
+.fr-section--dark { background: var(--fr-navy-deep); color: #fff; }
+
+/* ── HERO ── */
+.fr-hero { background: linear-gradient(135deg, #050d1a 0%, #0a1628 45%, var(--fr-navy-mid) 100%); color: #fff; padding: 90px 24px 80px; position: relative; overflow: hidden; }
+.fr-hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(200,151,62,0.12) 0%, transparent 65%); border-radius: 50%; }
+.fr-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--fr-gold), transparent); }
+.fr-hero__inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+.fr-hero__badge { display: inline-block; background: rgba(200,151,62,0.15); border: 1px solid rgba(200,151,62,0.4); color: var(--fr-gold); font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 6px 16px; border-radius: var(--fr-radius-sm); margin-bottom: 28px; }
+.fr-hero__label { font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--fr-gold); margin-bottom: 16px; }
+.fr-hero__title { font-family: var(--fr-font-display); font-size: clamp(34px, 5.5vw, 56px); line-height: 1.1; color: #fff; margin-bottom: 20px; letter-spacing: 0.01em; text-transform: uppercase; }
+.fr-hero__title span { color: var(--fr-gold); }
+.fr-hero__subtitle { font-size: 17px; color: rgba(255,255,255,0.72); max-width: 600px; line-height: 1.65; margin-bottom: 36px; font-weight: 400; }
+.fr-hero__meta { display: flex; gap: 32px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px; }
+.fr-hero__meta-item { font-size: 13px; color: rgba(255,255,255,0.55); }
+.fr-hero__meta-item strong { display: block; color: #fff; font-size: 14px; margin-bottom: 2px; font-weight: 600; }
+
+/* ── TYPOGRAPHY ── */
+.fr-section-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--fr-gold); margin-bottom: 12px; font-family: var(--fr-font-body); }
+.fr-h2 { font-family: var(--fr-font-display); font-size: clamp(26px, 4vw, 40px); line-height: 1.15; color: var(--fr-navy-deep); margin-bottom: 20px; letter-spacing: 0.01em; text-transform: uppercase; }
+.fr-section--dark .fr-h2 { color: #fff; }
+.fr-h3 { font-family: var(--fr-font-display); font-size: 18px; color: var(--fr-navy-deep); margin-bottom: 12px; line-height: 1.25; letter-spacing: 0.01em; text-transform: uppercase; }
+.fr-lead { font-size: 17px; color: var(--fr-slate); line-height: 1.75; margin-bottom: 24px; font-weight: 400; }
+.fr-section--dark .fr-lead { color: rgba(255,255,255,0.72); }
+p { margin-bottom: 16px; color: var(--fr-slate); }
+.fr-section--dark p { color: rgba(255,255,255,0.68); }
+.fr-divider { width: 48px; height: 3px; background: var(--fr-gold); margin-bottom: 24px; border-radius: 2px; }
+
+/* ── CARDS ── */
+.fr-grid { display: grid; gap: 24px; }
+.fr-grid--3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.fr-card--dark { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--fr-radius-md); padding: 28px 24px; }
+.fr-card__icon { width: 44px; height: 44px; background: rgba(200,151,62,0.12); border-radius: var(--fr-radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 20px; }
+
+/* ── CERT BADGES ── */
+.fr-certs { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin-top: 32px; }
+.fr-cert { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--fr-radius-md); padding: 14px 20px; }
+.fr-cert__icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; flex-shrink: 0; font-family: var(--fr-font-display); }
+.fr-cert__icon--besa { background: rgba(200,151,62,0.2); color: var(--fr-gold); }
+.fr-cert__icon--fgas { background: rgba(76,175,80,0.2); color: #4CAF50; }
+.fr-cert__label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+.fr-cert__value { font-size: 14px; font-weight: 600; color: #fff; }
+
+/* ── STATS ── */
+.fr-stats { display: flex; flex-wrap: wrap; gap: 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 48px; }
+.fr-stat { flex: 1; min-width: 140px; text-align: center; padding: 32px 16px; border-right: 1px solid rgba(255,255,255,0.08); }
+.fr-stat:last-child { border-right: none; }
+.fr-stat__number { font-family: var(--fr-font-display); font-size: 32px; color: var(--fr-gold); line-height: 1; margin-bottom: 6px; }
+.fr-stat__label { font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+/* ── SCOPE ── */
+.fr-scope-block { margin-bottom: 44px; }
+.fr-scope-block:last-of-type { margin-bottom: 32px; }
+.fr-scope-list { list-style: none; }
+.fr-scope-list li { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--fr-border); }
+.fr-scope-list li:last-child { border-bottom: none; }
+.fr-scope-list li::before { content: '\2713'; flex-shrink: 0; width: 22px; height: 22px; background: var(--fr-gold); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; margin-top: 2px; }
+.fr-scope-list li .scope-main { font-size: 15px; font-weight: 700; color: var(--fr-navy-deep); display: block; margin-bottom: 4px; }
+.fr-scope-list li .scope-detail { font-size: 14px; color: var(--fr-warm-grey); display: block; line-height: 1.65; font-weight: 400; }
+
+/* ── INVESTMENT (full-section variant) ── */
+.fr-investment { background: linear-gradient(135deg, var(--fr-navy-deep) 0%, var(--fr-navy-mid) 100%); padding: 60px 24px; text-align: center; position: relative; overflow: hidden; color: #fff; }
+.fr-investment::before { content: ''; position: absolute; top: -60px; right: -60px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(200,151,62,0.08) 0%, transparent 65%); border-radius: 50%; }
+.fr-investment__inner { position: relative; z-index: 1; }
+.fr-investment__amount { font-family: var(--fr-font-display); font-size: clamp(52px, 8vw, 72px); color: #fff; line-height: 1; margin-bottom: 8px; position: relative; letter-spacing: 0.01em; }
+.fr-investment__vat { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 32px; position: relative; }
+.fr-investment__includes { list-style: none; display: inline-block; text-align: left; position: relative; max-width: 520px; }
+.fr-investment__includes li { font-size: 14px; color: rgba(255,255,255,0.78); padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; gap: 10px; align-items: flex-start; }
+.fr-investment__includes li:last-child { border-bottom: none; }
+.fr-investment__includes li::before { content: '\2713'; color: var(--fr-gold); font-weight: 800; flex-shrink: 0; }
+
+/* ── PAYMENT TERMS ── */
+.fr-terms { background: var(--fr-warm-white); border-left: 4px solid var(--fr-gold); padding: 24px 28px; border-radius: 0 4px 4px 0; }
+.fr-terms h3 { font-size: 16px; font-weight: 700; color: var(--fr-navy-deep); margin-bottom: 16px; font-family: var(--fr-font-display); text-transform: uppercase; letter-spacing: 0.02em; }
+.fr-terms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+.fr-terms-item__label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: var(--fr-gold); text-transform: uppercase; margin-bottom: 4px; }
+.fr-terms-item__value { font-weight: 600; color: var(--fr-navy-deep); font-size: 14px; }
+
+/* ── STEPS ── */
+.fr-step { display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.08); align-items: flex-start; }
+.fr-step:last-child { border-bottom: none; }
+.fr-step__num { flex-shrink: 0; width: 40px; height: 40px; border: 2px solid var(--fr-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--fr-font-display); font-size: 16px; color: var(--fr-gold); }
+.fr-step__content h3 { color: #fff; margin-bottom: 6px; font-size: 16px; font-weight: 700; font-family: var(--fr-font-display); text-transform: uppercase; letter-spacing: 0.01em; }
+.fr-step__content p { color: rgba(255,255,255,0.65); font-size: 14px; margin: 0; }
+
+/* ── CTA ── */
+.fr-cta { text-align: center; padding: 80px 24px; background: linear-gradient(135deg, #050d1a 0%, var(--fr-navy-mid) 100%); color: #fff; }
+.fr-cta h2 { font-family: var(--fr-font-display); font-size: clamp(28px, 4vw, 44px); color: #fff; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.01em; }
+.fr-cta p { color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 36px; }
+.fr-btn { display: inline-block; background: var(--fr-gold); color: #fff; font-family: var(--fr-font-body); font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 16px 36px; border-radius: var(--fr-radius-sm); text-decoration: none; margin: 0 8px 12px; transition: background 0.2s, transform 0.15s; border: none; cursor: pointer; }
+.fr-btn:hover { background: var(--fr-gold-light); transform: translateY(-1px); }
+.fr-btn--outline { background: transparent; border: 2px solid rgba(255,255,255,0.4); color: #fff; }
+.fr-btn--outline:hover { border-color: var(--fr-gold); background: transparent; }
+
+/* ── FOOTER ── */
+.fr-footer { background: #050d1a; padding: 32px 24px; text-align: center; }
+.fr-footer p { color: rgba(255,255,255,0.35); font-size: 12px; margin: 0; }
+.fr-footer__logo { height: 36px; width: auto; margin-bottom: 12px; }
+
+@media (max-width: 600px) {
+  .fr-section { padding: 52px 0; }
+  .fr-hero { padding: 60px 20px 56px; }
+  .fr-investment { padding: 40px 24px; }
+  .fr-investment__amount { font-size: 52px; }
+  .fr-certs { flex-direction: column; align-items: center; }
+  .fr-topbar__tagline { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ STICKY TOP BAR ══ -->
+<div class="fr-topbar" id="topbar">
+  <div class="fr-topbar__brand">
+    <img class="fr-topbar__logo" src="https://assets.fanrescue.co.uk/logos/FR-Horizontal-Transparent.svg" alt="Fan Rescue">
+    <div class="fr-topbar__tagline">Commercial Kitchen Extraction &amp; HVAC &middot; Est. 2005</div>
+  </div>
+  <div class="fr-topbar__actions">
+    <button class="fr-topbar__btn fr-topbar__btn--pdf" onclick="downloadPDF()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download PDF
+    </button>
+    <button class="fr-topbar__btn fr-topbar__btn--accept" onclick="acceptQuote()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Accept Quote
+    </button>
+  </div>
+</div>
+
+<!-- ══ PDF OVERLAY ══ -->
+<div class="fr-pdf-overlay" id="pdfOverlay">
+  <div class="fr-pdf-overlay__msg">
+    <strong>Preparing PDF...</strong>
+    <p>Your browser's print dialog will open. Choose "Save as PDF" to download.</p>
+  </div>
+</div>
+
+<div class="fr-page">
+
+<!-- ══════════ 1. HERO ══════════ -->
+<div class="fr-hero">
+  <div class="fr-hero__inner">
+    <div class="fr-hero__badge">Kitchen Extraction &mdash; Noise &amp; Vibration Reduction Quote</div>
+    <div class="fr-hero__label">Prepared exclusively for</div>
+    <h1 class="fr-hero__title">Bunga Bunga<br><span>Silencer &amp; Anti-Vibration Works</span></h1>
+    <p class="fr-hero__subtitle">Supply and installation of a high-efficiency silencer, flexible connections and anti-vibration mounts to reduce noise and vibration from the kitchen extract fan at 167 Drury Lane.</p>
+    <div class="fr-hero__meta">
+      <div class="fr-hero__meta-item"><strong>Contact</strong>Inception Group</div>
+      <div class="fr-hero__meta-item"><strong>Site</strong>167 Drury Lane, London WC2B 5PG</div>
+      <div class="fr-hero__meta-item"><strong>Phone</strong><a href="tel:+447805906469" style="color:rgba(255,255,255,0.55);">07805 906469</a></div>
+      <div class="fr-hero__meta-item"><strong>Email</strong><a href="mailto:guy&#64;inception-group.com" style="color:rgba(255,255,255,0.55);">guy&#64;inception-group.com</a></div>
+      <div class="fr-hero__meta-item"><strong>Prepared by</strong>Huzaifa Mulla, Fan Rescue Ltd</div>
+      <div class="fr-hero__meta-item"><strong>Date</strong>2 September 2026</div>
+      <div class="fr-hero__meta-item"><strong>Quote Ref</strong>FR-2026-094</div>
+      <div class="fr-hero__meta-item"><strong>Valid for</strong>30 days</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 2. INTRODUCTION ══════════ -->
+<div class="fr-section">
+  <div class="fr-container">
+    <div class="fr-section-label">Introduction</div>
+    <div class="fr-divider"></div>
+    <h2 class="fr-h2">Hi,</h2>
+    <p class="fr-lead">Following your enquiry, we've put together this quote for noise and vibration reduction works to the kitchen extract system at Bunga Bunga, 167 Drury Lane. The works are designed to cut fan noise breakout and stop vibration transferring through the roof structure into the building.</p>
+    <p>This quote covers everything: supply and delivery of the silencer, flexible connections and anti-vibration mounts, all fitting and associated works, and the callout charge. Once accepted, we'll get a date in the diary as quickly as possible.</p>
+    <p>Any questions before you're ready to proceed, call us on 020 3308 2936 or hit Accept Quote at the top of the page.</p>
+  </div>
+</div>
+
+<!-- ══════════ 3. ABOUT FAN RESCUE ══════════ -->
+<div class="fr-section fr-section--dark">
+  <div class="fr-container">
+    <div class="fr-section-label">About Fan Rescue</div>
+    <div class="fr-divider"></div>
+    <h2 class="fr-h2">HVAC &amp; Extraction Specialists</h2>
+    <p class="fr-lead">We've been servicing, repairing, and installing commercial kitchen extraction systems across London and the South East since 2005. Every job &mdash; from emergency callouts to full system replacements &mdash; is handled entirely in-house.</p>
+    <div class="fr-grid fr-grid--3" style="margin-top:40px;">
+      <div class="fr-card--dark">
+        <div class="fr-card__icon">&#9889;</div>
+        <h3 style="color:#fff;font-size:15px;margin-bottom:8px;font-family:var(--fr-font-display);text-transform:uppercase;letter-spacing:0.01em;">Emergency Response</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.7);">Extraction failures don't wait &mdash; neither do we. We attend emergency callouts across London, diagnose the fault, and move fast on replacements so kitchens get back online.</p>
+      </div>
+      <div class="fr-card--dark">
+        <div class="fr-card__icon">&#128295;</div>
+        <h3 style="color:#fff;font-size:15px;margin-bottom:8px;font-family:var(--fr-font-display);text-transform:uppercase;letter-spacing:0.01em;">In-House Engineers</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.7);">No subcontracting &mdash; ever. Our own qualified engineers carry out every job from first visit to commissioning. Accountability and continuity on every site.</p>
+      </div>
+      <div class="fr-card--dark">
+        <div class="fr-card__icon">&#9989;</div>
+        <h3 style="color:#fff;font-size:15px;margin-bottom:8px;font-family:var(--fr-font-display);text-transform:uppercase;letter-spacing:0.01em;">Fully Compliant</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.7);">BESA certified and F-Gas registered. All replacement works carried out to BESA DW 172/144 standards. You get a system that works and a paper trail that holds up to inspection.</p>
+      </div>
+    </div>
+    <div class="fr-certs">
+      <div class="fr-cert">
+        <div class="fr-cert__icon fr-cert__icon--besa">B</div>
+        <div>
+          <div class="fr-cert__label">BESA Certified</div>
+          <div class="fr-cert__value">HV020676 &middot; <a href="https://www.thebesa.com/HV020676/" style="color:var(--fr-gold);font-size:12px;">Verify</a></div>
+        </div>
+      </div>
+      <div class="fr-cert">
+        <div class="fr-cert__icon fr-cert__icon--fgas">F</div>
+        <div>
+          <div class="fr-cert__label">F-Gas Registered</div>
+          <div class="fr-cert__value">FGAS2001890</div>
+        </div>
+      </div>
+      <div class="fr-cert">
+        <div class="fr-cert__icon" style="background:rgba(99,179,237,0.2);color:#63B3ED;">&pound;</div>
+        <div>
+          <div class="fr-cert__label">Public Liability</div>
+          <div class="fr-cert__value">&pound;10 Million Cover</div>
+        </div>
+      </div>
+      <div class="fr-cert">
+        <div class="fr-cert__icon" style="background:rgba(154,117,234,0.2);color:#9A75EA;">PI</div>
+        <div>
+          <div class="fr-cert__label">Professional Indemnity</div>
+          <div class="fr-cert__value">&pound;10 Million Cover</div>
+        </div>
+      </div>
+    </div>
+    <div class="fr-stats">
+      <div class="fr-stat"><div class="fr-stat__number">20+</div><div class="fr-stat__label">Years Trading</div></div>
+      <div class="fr-stat"><div class="fr-stat__number">London</div><div class="fr-stat__label">Based Team</div></div>
+      <div class="fr-stat"><div class="fr-stat__number">0</div><div class="fr-stat__label">Subcontractors</div></div>
+      <div class="fr-stat"><div class="fr-stat__number">Full</div><div class="fr-stat__label">Aftersales Support</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 4. SCOPE OF WORKS ══════════ -->
+<div class="fr-section fr-section--grey">
+  <div class="fr-container">
+    <div class="fr-section-label">What's Included</div>
+    <div class="fr-divider"></div>
+    <h2 class="fr-h2">Proposed Scope of Works</h2>
+    <p class="fr-lead">Below is everything covered under this quote at 167 Drury Lane. The callout charge is included in the total &mdash; there is nothing to add on top.</p>
+
+    <div class="fr-scope-block">
+      <h3 class="fr-h3">Silencer &amp; Flexible Connections</h3>
+      <ul class="fr-scope-list">
+        <li>
+          <div>
+            <span class="scope-main">Supply and install high-efficiency silencer</span>
+            <span class="scope-detail">In-line acoustic attenuator selected to suit the existing extract fan and ductwork, fitted within the extract run to reduce fan noise breakout to the surrounding area.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="scope-main">2 &times; flexible connections</span>
+            <span class="scope-detail">Flexible duct connections supplied and fitted at the fan inlet and outlet, isolating the fan from the rigid ductwork so vibration is not carried along the duct run.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="fr-scope-block">
+      <h3 class="fr-h3">Anti-Vibration Mounting</h3>
+      <ul class="fr-scope-list">
+        <li>
+          <div>
+            <span class="scope-main">6 &times; anti-vibration rubber mounts</span>
+            <span class="scope-detail">Rubber anti-vibration mounts supplied and fitted to the fan and silencer supports, breaking the mechanical path between the running plant and the structure.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="scope-main">Replace existing roof bracket with anti-vibration bracket</span>
+            <span class="scope-detail">Existing rigid roof bracket removed and replaced with an anti-vibration bracket. The fan is isolated, lifted, reinstated on the new mounting and reconnected, with all fixings and sealing included.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="fr-scope-block">
+      <h3 class="fr-h3">Callout &amp; Ancillaries</h3>
+      <ul class="fr-scope-list">
+        <li>
+          <div>
+            <span class="scope-main">All fixings, brackets and fitting kit</span>
+            <span class="scope-detail">Every support, fixing and sealing material needed for a secure, properly supported installation is included in the price &mdash; no hidden extras.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="scope-main">Callout charge &mdash; included</span>
+            <span class="scope-detail">The attendance and callout fee is included within the total quoted price. No separate callout invoice will be raised.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="fr-scope-block">
+      <h3 class="fr-h3">Commissioning &amp; Handover</h3>
+      <ul class="fr-scope-list">
+        <li>
+          <div>
+            <span class="scope-main">System run-up and operational check</span>
+            <span class="scope-detail">Once fitted, we run the fan up, check airflow is unaffected, and confirm the reduction in noise and vibration at the fan and roof mounting. We don't leave until it's right.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="scope-main">Handover and warranty documentation issued on the day</span>
+            <span class="scope-detail">All relevant documentation issued on completion. Your warranty period begins from the date of practical completion.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 5. INVESTMENT (full-section variant, no container wrapper) ══════════ -->
+<div class="fr-investment">
+  <div class="fr-investment__inner">
+    <div class="fr-section-label" style="color:rgba(200,151,62,0.7);margin-bottom:16px;">Total Investment</div>
+    <div class="fr-investment__amount">&pound;3,870</div>
+    <div class="fr-investment__vat">+ VAT &middot; All-inclusive &mdash; no hidden charges</div>
+    <ul class="fr-investment__includes">
+      <li>High-efficiency silencer &mdash; supply &amp; delivery</li>
+      <li>2 &times; flexible connections</li>
+      <li>6 &times; anti-vibration rubber mounts</li>
+      <li>Anti-vibration roof bracket &mdash; supply &amp; replacement</li>
+      <li>Full installation including fitting kit</li>
+      <li>Callout charge</li>
+      <li>Commissioning and handover</li>
+      <li>1-year parts and labour warranty</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Payment Terms panel -->
+<div class="fr-section fr-section--grey" style="padding-top:0;">
+  <div class="fr-container" style="padding-top:36px;">
+    <div class="fr-terms">
+      <h3>Payment Schedule</h3>
+      <div class="fr-terms-grid">
+        <div>
+          <div class="fr-terms-item__label">Stage 1 &mdash; Deposit (60%)</div>
+          <div class="fr-terms-item__value">&pound;2,322 + VAT</div>
+        </div>
+        <div>
+          <div class="fr-terms-item__label">Stage 2 &mdash; On Completion (40%)</div>
+          <div class="fr-terms-item__value">&pound;1,548 + VAT</div>
+        </div>
+        <div>
+          <div class="fr-terms-item__label">Quote Valid</div>
+          <div class="fr-terms-item__value">30 days from issue</div>
+        </div>
+        <div>
+          <div class="fr-terms-item__label">VAT</div>
+          <div class="fr-terms-item__value">20% &mdash; all prices ex VAT</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 6. GETTING STARTED ══════════ -->
+<div class="fr-section fr-section--dark">
+  <div class="fr-container">
+    <div class="fr-section-label">Getting Started</div>
+    <div class="fr-divider"></div>
+    <h2 class="fr-h2">How We Get The Work Done</h2>
+    <div style="margin-top:8px;">
+      <div class="fr-step">
+        <div class="fr-step__num">1</div>
+        <div class="fr-step__content">
+          <h3>Accept This Quote</h3>
+          <p>Click Accept Quote at the top of the page or email customerservice&#64;fanrescue.co.uk. We confirm your order and raise the deposit invoice the same day.</p>
+        </div>
+      </div>
+      <div class="fr-step">
+        <div class="fr-step__num">2</div>
+        <div class="fr-step__content">
+          <h3>Deposit &mdash; &pound;2,322 + VAT (60%)</h3>
+          <p>Once the deposit clears, the silencer and mounts are ordered immediately and your installation date is confirmed. A Google Calendar invite is sent for the scheduled visit &mdash; nothing happens until you've accepted it.</p>
+        </div>
+      </div>
+      <div class="fr-step">
+        <div class="fr-step__num">3</div>
+        <div class="fr-step__content">
+          <h3>Installation &amp; Commissioning &mdash; Final Payment &pound;1,548 + VAT (40%)</h3>
+          <p>Our engineers attend site, fit the silencer, flexible connections and anti-vibration mounts, replace the roof bracket, and run the system up. Final payment is due on practical completion &mdash; your kitchen is back running before we leave.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 7. TERMS & CONDITIONS ══════════ -->
+<div class="fr-section fr-section--grey">
+  <div class="fr-container">
+    <div class="fr-section-label">Terms &amp; Conditions</div>
+    <div class="fr-divider"></div>
+    <h2 class="fr-h2">Terms &amp; Conditions</h2>
+    <div style="margin-top:8px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:24px;">
+        <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;font-family:var(--fr-font-display);">Warranty</div>
+          <p style="font-size:14px;color:var(--fr-slate);margin:0;">All labour and parts supplied by us carry a <strong>one-year warranty</strong> from the date of practical completion. Air conditioning parts carry a 5-year warranty.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;font-family:var(--fr-font-display);">Additional Works</div>
+          <p style="font-size:14px;color:var(--fr-slate);margin:0;">Any work outside the agreed scope will be priced and confirmed with the client in writing before commencement.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;font-family:var(--fr-font-display);">Exclusions</div>
+          <p style="font-size:14px;color:var(--fr-slate);margin:0;">This quotation excludes building works, gas supply, and any electrical supply upgrades unless explicitly stated in the scope above.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;font-family:var(--fr-font-display);">Equipment Ownership</div>
+          <p style="font-size:14px;color:var(--fr-slate);margin:0;">All installed equipment remains the property of Fan Rescue Ltd until full and final payment has been received.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;font-family:var(--fr-font-display);">Late Payment</div>
+          <p style="font-size:14px;color:var(--fr-slate);margin:0;">Unpaid balances passed to our debt recovery specialists. A charge of <strong>15% + VAT</strong> applied to the outstanding amount, plus statutory interest.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;font-family:var(--fr-font-display);">Standards</div>
+          <p style="font-size:14px;color:var(--fr-slate);margin:0;">All works in accordance with <strong>F-GAS</strong>, <strong>BESA DW 172/144</strong>, and the <strong>EMAQ+</strong> Specifications Guide.</p>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;font-family:var(--fr-font-display);">Commencement &amp; Confirmation</div>
+        <p style="font-size:14px;color:var(--fr-slate);margin:0;">Works commence only once the quote has been accepted and the 60% deposit received by Fan Rescue Ltd. Bank transfer only &mdash; no card payments. Scheduled visits are confirmed via Google Calendar invite, accepted by the client. The system will not be commissioned or handed over until full and final payment has been received.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 8. CLEANING UPSELL ══════════ -->
+<div class="fr-section">
+  <div class="fr-container">
+    <div style="background: linear-gradient(135deg, var(--fr-navy-deep) 0%, var(--fr-navy-mid) 100%); border-radius: var(--fr-radius-md); padding: 48px 40px; display:flex; gap:40px; flex-wrap:wrap; align-items:center;">
+      <div style="flex:2;min-width:240px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--fr-gold);text-transform:uppercase;margin-bottom:10px;font-family:var(--fr-font-display);">Ongoing Compliance</div>
+        <h3 style="font-family:var(--fr-font-display);font-size:20px;color:#fff;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.01em;">Keep Your System Clean &amp; Compliant</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.7);margin:0 0 12px;line-height:1.7;">Once the silencer is in, your extraction system will need regular TR19-compliant cleaning to stay EHO-compliant and keep your insurance valid. Grease build-up is the leading cause of kitchen fires and is the most common reason for compliance failures.</p>
+        <p style="font-size:14px;color:rgba(255,255,255,0.7);margin:0;line-height:1.7;">Fan Rescue runs TR19 cleaning contracts across London. We'll already know your system &mdash; let us maintain it too.</p>
+      </div>
+      <div style="flex:1;min-width:200px;text-align:center;">
+        <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:8px;">Ask us about</div>
+        <div style="font-family:var(--fr-font-display);font-size:20px;color:var(--fr-gold);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.01em;">Cleaning Contracts</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px;">TR19 &middot; EHO-compliant &middot; Certified</div>
+        <a href="mailto:office&#64;fanrescue.co.uk" style="display:inline-block;background:var(--fr-gold);color:var(--fr-navy-deep);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:12px 24px;border-radius:var(--fr-radius-sm);text-decoration:none;">Get a Cleaning Quote</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 9. READY TO PROCEED ══════════ -->
+<div class="fr-cta" id="acceptSection">
+  <h2>Ready to Proceed?</h2>
+  <p>Click Accept to confirm your agreement to the scope, terms, and payment schedule in this quote. We'll be back to you the same day.</p>
+  <button class="fr-btn" onclick="acceptQuote()">Accept This Quote</button>
+  <a href="tel:+442033082936" class="fr-btn fr-btn--outline">Call Us &mdash; 020 3308 2936</a>
+  <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:24px;max-width:500px;margin-left:auto;margin-right:auto;">Quote Ref: FR-2026-094 &middot; Valid 30 days from date of issue &middot; BESA HV020676 &middot; F-Gas FGAS2001890</p>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<div class="fr-footer">
+  <img class="fr-footer__logo" src="https://assets.fanrescue.co.uk/logos/FR-Horizontal-Transparent.svg" alt="Fan Rescue">
+  <p>Fan Rescue Ltd &middot; 260 West Hendon Broadway, London, NW9 6AG<br>
+  Tel: 020 3308 2936 &middot; enquiries&#64;fanrescue.co.uk &middot; <a href="https://fanrescue.co.uk" style="color:rgba(255,255,255,0.35);">fanrescue.co.uk</a><br>
+  Co No: 5954579 &middot; VAT No: 906 9111 32 &middot; BESA HV020676 &middot; F-Gas FGAS2001890<br>
+  Quote Ref: FR-2026-094 &middot; Valid 30 days from date of issue. All prices exclude VAT.</p>
+</div>
+
+</div>
+
+<!-- ══ TRACKING ══ -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5d9632d8a3084226b854145a0da83ba8"}'></script>
+<script>
+!function(){var t="proposal-tracker.office-33b.workers.dev",n=Date.now(),r=0,a=0;function s(){return Math.round((Date.now()-n)/1e3)}function o(){var e=document.documentElement,t=e.scrollHeight-e.clientHeight;return t>0?Math.round(100*e.scrollTop/t):0}function c(e,i){var d={event:e,ref:document.title,time:s(),scroll:o(),ua:navigator.userAgent};if(i)for(var k in i)d[k]=i[k];navigator.sendBeacon?navigator.sendBeacon("https://"+t+"/track",JSON.stringify(d)):fetch("https://"+t+"/track",{method:"POST",body:JSON.stringify(d),keepalive:!0})}c("view");setInterval(function(){var p=o();p>a&&(a=p);r++},5e3);window.addEventListener("beforeunload",function(){c("leave",{maxScroll:a,engaged:r})});window.__frTrack=c}();
+</script>
+
+<script>
+function acceptQuote() {
+  if(window.__frTrack) window.__frTrack('accept');
+  var e = 'customerservice' + '\u0040' + 'fanrescue.co.uk';
+  var s = 'Quote Acceptance \u2014 Bunga Bunga \u2014 FR-2026-094';
+  var b = 'Hi Fan Rescue,\n\nI would like to accept quote FR-2026-094 for the silencer and anti-vibration works at 167 Drury Lane, London WC2B 5PG.\n\nPlease send the deposit invoice so we can get started.\n\nThanks,\nInception Group';
+  var u = 'mailto:' + e + '?subject=' + encodeURIComponent(s) + '&body=' + encodeURIComponent(b);
+  var opened = false;
+  try {
+    var a = document.createElement('a');
+    a.href = u;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    opened = true;
+    setTimeout(function () { if (a.parentNode) a.parentNode.removeChild(a); }, 1500);
+  } catch (err) {
+    opened = false;
+  }
+  setTimeout(function () {
+    if (!opened || (!document.hidden && document.hasFocus())) frAcceptFallback(e, s, b);
+  }, 1800);
+}
+function frAcceptFallback(e, s, b) {
+  if (document.getElementById('frAcceptFallback')) return;
+  var w = document.createElement('div');
+  w.id = 'frAcceptFallback';
+  w.setAttribute('style', 'position:fixed;inset:0;z-index:9999;background:rgba(10,22,40,0.82);display:flex;align-items:center;justify-content:center;padding:24px;');
+  var box = document.createElement('div');
+  box.setAttribute('style', 'background:#fff;max-width:520px;width:100%;border-radius:var(--fr-radius-md);padding:32px;font-family:var(--fr-font-body);');
+  var h = document.createElement('div');
+  h.setAttribute('style', 'font-family:var(--fr-font-display);font-size:18px;color:var(--fr-navy-deep);text-transform:uppercase;letter-spacing:0.01em;margin-bottom:12px;');
+  h.textContent = 'Accept This Quote';
+  var p = document.createElement('p');
+  p.setAttribute('style', 'font-size:14px;color:var(--fr-slate);line-height:1.7;margin:0 0 16px;');
+  p.textContent = 'If your email client did not open, send the message below to ' + e + ' and we will confirm the same day.';
+  var t = document.createElement('textarea');
+  t.setAttribute('readonly', 'readonly');
+  t.setAttribute('style', 'width:100%;height:170px;font-size:13px;font-family:var(--fr-font-body);color:var(--fr-slate);border:1px solid var(--fr-border);border-radius:var(--fr-radius-sm);padding:12px;resize:vertical;');
+  t.value = 'To: ' + e + '\nSubject: ' + s + '\n\n' + b;
+  var row = document.createElement('div');
+  row.setAttribute('style', 'display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;');
+  var copy = document.createElement('button');
+  copy.setAttribute('style', 'background:var(--fr-gold);color:var(--fr-navy-deep);border:none;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:12px 22px;border-radius:var(--fr-radius-sm);cursor:pointer;');
+  copy.textContent = 'Copy Message';
+  copy.onclick = function () {
+    t.select();
+    try { document.execCommand('copy'); copy.textContent = 'Copied'; } catch (err) {}
+  };
+  var close = document.createElement('button');
+  close.setAttribute('style', 'background:none;color:var(--fr-warm-grey);border:1px solid var(--fr-border);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:12px 22px;border-radius:var(--fr-radius-sm);cursor:pointer;');
+  close.textContent = 'Close';
+  close.onclick = function () { w.parentNode.removeChild(w); };
+  row.appendChild(copy);
+  row.appendChild(close);
+  box.appendChild(h);
+  box.appendChild(p);
+  box.appendChild(t);
+  box.appendChild(row);
+  w.appendChild(box);
+  w.onclick = function (ev) { if (ev.target === w) w.parentNode.removeChild(w); };
+  document.body.appendChild(w);
+}
+function downloadPDF() {
+  if(window.__frTrack) window.__frTrack('download');
+  var overlay = document.getElementById('pdfOverlay');
+  overlay.classList.add('active');
+  var topbar = document.getElementById('topbar');
+  topbar.style.display = 'none';
+  setTimeout(function() {
+    overlay.classList.remove('active');
+    window.print();
+    topbar.style.display = '';
+  }, 600);
+}
+document.getElementById('pdfOverlay').addEventListener('click', function(e) {
+  if (e.target === this) this.classList.remove('active');
+});
+</script>
+
+</body>
+</html>
