@@ -378,12 +378,12 @@ p { margin-bottom: 16px; color: var(--fr-slate); }
       <h3>Payment Schedule</h3>
       <div class="fr-terms-grid">
         <div>
-          <div class="fr-terms-item__label">Stage 1 &mdash; Deposit (60%)</div>
-          <div class="fr-terms-item__value">&pound;1,272.00 + VAT</div>
+          <div class="fr-terms-item__label">Payment &mdash; In Full on Acceptance</div>
+          <div class="fr-terms-item__value">&pound;2,120.00 + VAT</div>
         </div>
         <div>
-          <div class="fr-terms-item__label">Stage 2 &mdash; On Completion (40%)</div>
-          <div class="fr-terms-item__value">&pound;848.00 + VAT</div>
+          <div class="fr-terms-item__label">Payment Method</div>
+          <div class="fr-terms-item__value">Bank transfer only</div>
         </div>
         <div>
           <div class="fr-terms-item__label">Quote Valid</div>
@@ -409,21 +409,21 @@ p { margin-bottom: 16px; color: var(--fr-slate); }
         <div class="fr-step__num">1</div>
         <div class="fr-step__content">
           <h3>Accept This Quote</h3>
-          <p>Click Accept Quote at the top of the page or email customerservice&#64;fanrescue.co.uk. We confirm your order and raise the deposit invoice the same day.</p>
+          <p>Click Accept Quote at the top of the page or email customerservice&#64;fanrescue.co.uk. We confirm your order and raise the invoice the same day.</p>
         </div>
       </div>
       <div class="fr-step">
         <div class="fr-step__num">2</div>
         <div class="fr-step__content">
-          <h3>Deposit &mdash; &pound;1,272.00 + VAT (60%)</h3>
-          <p>Once the deposit clears, equipment is ordered immediately and your installation date is confirmed. We move as quickly as possible on emergency replacements. A Google Calendar invite is sent for the scheduled visit &mdash; nothing happens until you've accepted it.</p>
+          <h3>Payment in Full &mdash; &pound;2,120.00 + VAT</h3>
+          <p>Once payment clears, equipment is ordered immediately and your installation date is confirmed. We move as quickly as possible on emergency replacements. A Google Calendar invite is sent for the scheduled visit &mdash; nothing happens until you've accepted it.</p>
         </div>
       </div>
       <div class="fr-step">
         <div class="fr-step__num">3</div>
         <div class="fr-step__content">
-          <h3>Installation &amp; Commissioning &mdash; Final Payment &pound;848.00 + VAT (40%)</h3>
-          <p>Our engineers attend site, install the replacement extraction fan, reconnect electrics, and commission the system. Final payment is due on practical completion &mdash; your kitchen is back running before we leave.</p>
+          <h3>Installation &amp; Commissioning</h3>
+          <p>Our engineers attend site, install the replacement extraction fan, reconnect electrics, and commission the system. Your kitchen is back running before we leave.</p>
         </div>
       </div>
     </div>
@@ -465,7 +465,7 @@ p { margin-bottom: 16px; color: var(--fr-slate); }
       </div>
       <div style="background:#fff;border:1px solid var(--fr-border);border-radius:var(--fr-radius-md);padding:24px;">
         <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--fr-gold);text-transform:uppercase;margin-bottom:8px;font-family:var(--fr-font-display);">Commencement &amp; Confirmation</div>
-        <p style="font-size:14px;color:var(--fr-slate);margin:0;">Works commence only once the quote has been accepted and the 60% deposit received by Fan Rescue Ltd. Bank transfer only &mdash; no card payments. Scheduled visits are confirmed via Google Calendar invite, accepted by the client. The system will not be commissioned or handed over until full and final payment has been received.</p>
+        <p style="font-size:14px;color:var(--fr-slate);margin:0;">Works commence only once the quote has been accepted and payment in full received by Fan Rescue Ltd. Bank transfer only &mdash; no card payments. Scheduled visits are confirmed via Google Calendar invite, accepted by the client. The system will not be commissioned or handed over until full and final payment has been received.</p>
       </div>
     </div>
   </div>
@@ -523,7 +523,7 @@ function acceptQuote() {
   var to = 'customerservice' + '\u0040' + 'fanrescue.co.uk';
   var cc = 'huzaifa' + '\u0040' + 'fanrescue.co.uk' + ',' + 'office' + '\u0040' + 'fanrescue.co.uk';
   var s = 'Quote Acceptance \u2014 Hoebridge Golf Centre \u2014 FR-2026-100';
-  var b = 'Hi Fan Rescue,\n\nI would like to accept quote FR-2026-100 for the extraction fan replacement at Hoebridge Golf Centre, Old Woking Road, Woking, Surrey GU22 8JH.\n\nPlease send the deposit invoice so we can get started.\n\nThanks,\nTim\nHoebridge Golf Centre';
+  var b = 'Hi Fan Rescue,\n\nI would like to accept quote FR-2026-100 for the extraction fan replacement at Hoebridge Golf Centre, Old Woking Road, Woking, Surrey GU22 8JH.\n\nPlease send the invoice so we can get started.\n\nThanks,\nTim\nHoebridge Golf Centre';
   var mailto = 'mailto:' + to + (cc ? '?cc=' + encodeURIComponent(cc) + '&' : '?') + 'subject=' + encodeURIComponent(s) + '&body=' + encodeURIComponent(b);
   // Robust open: trigger via a real anchor click (works on iOS/Android/most desktop mail clients),
   // fall back to a visible accept panel if no mail handler responds within 700ms.
